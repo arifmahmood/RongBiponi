@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<style>
+
+label{
+display:inline-block;
+width:80px;
+margin-right:20px;
+text-align:right;
+}
+
+input{
+
+}
+
+fieldset{
+border:none;
+margin:0px auto;
+}
+
+.button1 {
+  display: inline-block;
+  border-radius: 3px;
+  background-color: #f4511e;
+  background: linear-gradient(#3399ff, #79bcFF);
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  height: 35px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.button1 span {
+  cursor:pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  color: black;
+}
+
+.button1 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button1:hover{
+background: linear-gradient(#79bcFF, #3399ff);
+}
+
+.button1:hover span {
+  padding-right: 25px;
+}
+
+.button1:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button1:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.button1 {
+	display: block 
+}
+.button {
+  display: inline-block;
+  border-radius: 15px;
+  background-color: #f4511e;
+  background: linear-gradient(#FFCC99, yellow);
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  padding: 5px;
+  width: 125px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor:pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  color: black;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover{
+background: linear-gradient(yellow, #FFCC99);
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.auto-style1 {
+	text-align: center;
+	font-size: x-large;
+	color: #FFFFFF;
+	padding: 5px;
+}
+
+.select{
+	height: 40px;
+	width: 175px;
+	border-radius:2px;
+	margin-left: 10px; float:left;
+	background:#E8E8E1;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    border-collapse: collapse 
+    text-align: left;
+    padding: 8px;
+}
+
+table th {
+	text-align:center 
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.verticalLine{
+	border-left: thick solid #000000
+}
+
+.AlignToTextArea * {
+  vertical-align: middle;
+}
+
+.auto-style2 {
+	text-align: right;
+}
+
+</style>
+</head>
+
+<body style="background-color: #E4E4E0">
+
+<form action="" method="post" style="border-radius:3px; width: 900px; height: 40px; top: 10px; position: absolute; background-color: #666699; left: 10px; bottom: 233px;">
+	<div class="auto-style1">
+		সাপ্লাইয়ার ও পার্টি ডিলিট</div>
+</form>
+
+<form action="" method="post" style= "border-radius: 3px; width: 900px; height: 500px; top: 60px; position: absolute; background-color: #FFFFFF; left: 10px;">
+	
+		
+		<div id="layer2" style="position: absolute; width: 162px; height: 49px; z-index: 2; left: 9px; top: 5px; right: 409px;">
+			<button class="button"><span>মূল পাতা</span>
+			</button>
+		</div>
+		<div id="layer1" style="position: absolute; width: 143px; height: 49px; z-index: 1; left: 742px; top: 5px">
+			<button class="button"><span>লগ আউট</span>
+			</button>
+		
+		</div>
+		
+		<a style="position: absolute; left: 47px; top: 420px; height: 32px; width: 100px; font-family: Calibri; right: 660px; padding-top: 8px;" class="button1">&laquo; পূর্বে</a>
+		<a style="position: absolute; left: 158px; top: 420px; height: 32px; width: 100px; font-family: Calibri; padding-top: 8px;" class="button1" >পরে &raquo;</a>
+		
+		<div id="layer1" style="position: absolute; width: 162px; height: 51px; z-index: 1; left: 71px; top: 372px">
+			<input name="btnDelete" type="button" value="ডিলিট" class="button1"/>
+		
+		</div>
+		
+	<fieldset style="border: thin solid #000000; height: 284px; width: 276px; position: absolute; left:20px; top: 62px;">
+			<legend><strong>Input Field</strong></legend> 
+			<label for="txtId">আইডি :</label><input type="text" name="txtId" style= "width: 100px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right"></input>
+			<label for="txtName">নাম :</label><input type="text" name="txtId" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"></input>
+			<p class="AlignToTextArea" style="margin-bottom: 0; margin-top: 0">
+			<label for="txtaddress">ঠিকানা :</label><textarea rows="4" name="txtAddress" style= "width: 159px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; display: inline-block"> </textarea>
+			</p>
+			<label for="txtRateStock">মোবাইল নং :</label><input type="text" name="txtRateStock" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align; left: " onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;"></input>
+			<label for="slctType" style="width:80px; margin-right: 15px">ধরন :</label>
+			<select name="slctType" style="width: 140px; height: 30px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
+				<option></option>
+			</select>
+			<label for="slctSR" style="width:80px; margin-right: 15px">এসআর :</label>
+			<select name="slctSR" style="width: 140px; height: 30px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
+				<option></option>
+			</select>
+	</fieldset>
+		
+	<fieldset style="border: thin solid #000000; height: 140px; width: 292px; position: absolute; left:374px; top: 62px;">
+	<legend><strong >Search Field</strong></legend>
+		<label for="slctName" style="width:80px">নাম :</label><select name="slctName" style="width: 185px; height: 30px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
+				<option></option>
+			</select>
+		<label for="slctSize" style="width:80px">মোবাইল নং :</label><select name="slctName" style="width: 181px; height: 30px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
+				<option></option>
+			</select>
+		 	
+		<div id="layer1" style="width: 162px; height: 51px; margin-left:70px; z-index: 1">
+			<input name="btnSearch" type="button" value="সার্চ" class="button1"/>
+		
+		</div>
+	
+	</fieldset>
+		<div id="layer3" style="position: absolute; width: 512px; height: 189px; z-index: 3; left: 372px; top: 235px; overflow: auto">
+			<table style="height: 106px">
+			  <tr>
+			    <th>নাম</th>
+			    <th>ঠিকানা</th>
+			    <th>মোবাইল</th>
+			    <th>এসআর</th>
+			  </tr>
+			  <tr>
+			    <td>Ashraf Ali</td>
+			    <td>Badurtola, Bogra.</td>
+			    <td>01554236589</td>
+			    <td>Rofiqul</td>
+			  </tr>
+			  <tr>
+			    <td>Rahman Bros</td>
+			    <td>Matidali Mor, Bogra.</td>
+			    <td>01678541269</td>
+			    <td>Aminul</td>
+			  </tr>
+
+			</table>
+		</div>
+			
+		<div class="verticalLine" style=" position: absolute; height: 349px; width: 6px; left: 345px; top: 62px;">
+			
+		</div>	
+		
+</form>
+
+</body>
+
+</html>

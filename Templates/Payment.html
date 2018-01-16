@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<style>
+
+label{
+display:inline-block;
+width:80px;
+text-align:left;
+}
+
+input{
+
+}
+
+fieldset{
+border:none;
+margin:0px auto;
+}
+
+.button1 {
+  display: inline-block;
+  border-radius: 3px;
+  background-color: #f4511e;
+  background: linear-gradient(#3399ff, #79bcFF);
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  height: 35px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.button1 span {
+  cursor:pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  color: black;
+}
+
+.button1 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button1:hover{
+background: linear-gradient(#79bcFF, #3399ff);
+}
+
+.button1:hover span {
+  padding-right: 25px;
+}
+
+.button1:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button1:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.button1 {
+	display: block 
+}
+.button {
+  display: inline-block;
+  border-radius: 15px;
+  background-color: #f4511e;
+  background: linear-gradient(#FFCC99, yellow);
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  padding: 5px;
+  width: 125px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor:pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  color: black;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover{
+background: linear-gradient(yellow, #FFCC99);
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.auto-style1 {
+	text-align: center;
+	font-size: x-large;
+	color: #FFFFFF;
+	padding: 5px;
+}
+
+.select{
+	height: 40px;
+	width: 175px;
+	border-radius:2px;
+	margin-left: 10px; float:left;
+	background:#E8E8E1;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    top: 280px;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 5px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.AlignToTextArea * {
+  vertical-align: middle;
+}
+
+</style>
+</head>
+
+<body style="background-color: #E4E4E0">
+
+<form action="" method="post" style="border-radius:3px; width: 680px; height: 40px; top: 10px; position: absolute; background-color: #666699; left: 10px;">
+	<div class="auto-style1">
+		<strong>পেমেন্ট</strong></div>
+</form>
+
+<form action="" method="post" style="border-radius:3px; width: 680px; height: 374px; top: 60px; position: absolute; background-color: #FFFFFF; left: 10px;">
+		<div id="layer2" style="position: absolute; width: 162px; height: 49px; z-index: 2; left: 36px; top: 5px; right: 902px;">
+			<button class="button"><span>মূল পাতা</span>
+			</button>
+		</div>
+		<div id="layer1" style="position: absolute; width: 143px; height: 49px; z-index: 1; left: 501px; top: 5px">
+			<button class="button"><span>লগ আউট</span>
+			</button>
+		</div>
+		
+		<div id="layer1" style="position: absolute; width: 90px; height: 51px; z-index: 1; left: 374px; top: 4px; right: 216px;">
+			<input name="btnDone" type="button" value="সেভ" class="button1" style="width: 77px"/>
+		</div>
+		
+		
+		<div id="layer1" style="position: absolute; width: 153px; height: 51px; z-index: 1; left: 210px; top: 5px">
+			<input name="btnAdd" onclick="myFunction()" type="button" value="নতুন রেকর্ড" class="button1" style="width: 146px"/>
+		</div>
+		
+		<fieldset style="border: thin solid #000000; height: 270px; width: 299px; position: absolute; left:170px; top: 62px;">
+			<label for="dtpSale" style="width: 100px">তারিখ</label><label for="dtpSale" style="width: 10px"><strong>:</strong></label><input type="Date" name="dtpSale" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"/>
+			<label for="slctSR" style="width: 100px">পার্টি/সাপ্লাইয়ার</label><label for="slctSR" style="width: 10px"><strong>:</strong></label><select name="slctSR" style= "width: 180px; height: 35px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right">
+				<option>Rofiqul</option>
+				<option>Moksed</option>
+			</select>
+			<label for="slctParty" style="width:100px">নাম</label><label for="slctParty" style="width: 10px"><strong>:</strong></label><select name="slctParty" style="width: 180px; height: 35px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
+				<option>Md. Nazrul Islam</option>
+				<option>M/s Noor Bros.</option>
+			</select>
+			<p class="AlignToTextArea" style="margin-bottom: 0; margin-top: 0">
+			<label for="txtaddress" style="width: 100px">ঠিকানা</label><label for="txtaddress" style="width: 10px"><strong>:</strong></label><textarea rows="4" name="txtAddress" style= "width: 170px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; display: inline-block"> </textarea>
+			</p>
+			<label for="txtTotal" style="width: 100px">অন্যান্য</label><label for="txtTotal" style="width: 10px"><strong>:</strong></label><input name="txtUnit" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"/>
+			<label for="txtDiscount" style="width: 100px">টাকা</label><label for="txtDiscount" style="width: 10px"><strong>:</strong></label><input type="number" name="txtFree" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+			
+		</fieldset>
+		
+</form>
+
+</body>
+
+</html>

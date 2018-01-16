@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Report Selection</title>
+
+<style>
+
+.button1 {
+  display: inline-block;
+  border-radius: 3px;
+  background-color: #f4511e;
+  background: linear-gradient(#3399ff, #79bcFF);
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  height: 35px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.button1 span {
+  cursor:pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  color: black;
+}
+
+.button1 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button1:hover{
+background: linear-gradient(#79bcFF, #3399ff);
+}
+
+.button1:hover span {
+  padding-right: 25px;
+}
+
+.button1:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button1:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.button1 {
+	display: block 
+}
+
+	label{
+	display:inline-block;
+	width:80px;
+	text-align:center;
+	}
+	.auto-style1 {
+		text-align: center;
+	}
+	.auto-style2 {
+		text-align: center;
+		font-size: x-large;
+		color: #FFFFFF;
+	}
+	
+</style>
+</head>
+
+<body style="background-color: #E4E4E0">
+
+<form action="" method="post" style="border-radius:3px; width: 446px; height: 40px; top: 10px; position: absolute; background-color: #666699; left: 10px;">
+	<div class="auto-style2" style="left: 10px">xxx Report Selction Opiton</div>
+</form>
+
+<form action="" method="post" style="border-radius:3px; width: 446px; height: 240px; top: 60px; position: absolute; background-color: #FFFFFF; left: 10px;">
+	<div id="layer1" style="position: absolute; width: 231px; height: 38px; z-index: 1; left: 5px; top: 18px" class="auto-style1">
+		<label for="dtpFrom" style="width: 80px">হইতে</label><input type="Date" name="dtpSale" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"/></div>
+		
+	<div id="layer2" style="position: absolute; width: 231px; height: 38px; z-index: 1; left: 184px; top: 18px" class="auto-style1">
+		<label for="dtpTo" style="width: 80px">পর্যন্ত</label><input type="Date" name="dtpSale" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"/></div>
+		
+	<div id="layer3" style="position: absolute; width: 288px; height: 38px; z-index: 1; left: 5px; top: 82px" class="auto-style1">
+		<label for="slctParty" style="width:80px">পার্টি</label><label for="slctParty" style="width: 10px"><strong>:</strong></label><select name="slctParty" style="width: 180px; height: 35px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
+			<option>Md. Nazrul Islam</option>
+			<option>M/s Noor Bros.</option>
+		</select>
+	</div>
+	
+	<div id="layer4" style="position: absolute; width: 288px; height: 38px; z-index: 1; left: 5px; top: 125px" class="auto-style1">
+			<label for="slctSR">এসআর</label><label for="slctSR" style="width: 10px"><strong>:</strong></label><select name="slctSR" style= "width: 180px; height: 35px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right">
+				<option>Rofiqul</option>
+				<option>Moksed</option>
+			</select>
+	</div>
+	
+		<div id="layer1" style="position: absolute; width: 90px; height: 51px; z-index: 1; left: 175px; top: 175px;">
+			<input name="btnDone" type="button" value="Go" class="button1" style="width: 77px"/>
+		</div>
+
+</form>
+
+</body>
+
+</html>
