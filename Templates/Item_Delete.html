@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+{<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <style>
 
@@ -165,20 +164,36 @@ tr:nth-child(even) {
 }
 
 </style>
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <script>
+    function updateInput(num) {
+            $('input[name="txtName"]').val(num);
+            $('input[name="txtSize"]').val("{{ITEMS}}");
+    }
+
+            $(document).ready(function(){
+            $("#button").click(function(){
+                $("#hi").submit();
+            });
+        });
+    </script>
 </head>
 
 <body style="background-color: #E4E4E0">
 
 <form action="" method="post" style="border-radius:3px; width: 827px; height: 40px; top: 10px; position: absolute; background-color: #666699; left: 10px; bottom: 235px;">
-	<div class="auto-style1">
+	<div id="h" class="auto-style1">
 		<strong>পণ্য ডিলিট</strong></div>
 </form>
 
-<form action="" method="post" style= "border-radius: 3px; width: 827px; height: 501px; top: 60px; position: absolute; background-color: #FFFFFF; left: 10px;">
+<form action="/item/delete/" id="hi" method="POST" style= "border-radius: 3px; width: 827px; height: 501px; top: 60px; position: absolute; background-color: #FFFFFF; left: 10px;">
+    {% csrf_token %}
 	
 		
 		<div id="layer2" style="position: absolute; width: 162px; height: 49px; z-index: 2; left: 9px; top: 5px; right: 409px;">
-			<button class="button"><span>মূল পাতা</span>
+			<button id="button" type="button" class="button"><span>মূল পাতা</span>
 			</button>
 		</div>
 		<div id="layer1" style="position: absolute; width: 143px; height: 49px; z-index: 1; left: 669px; top: 5px">
@@ -198,8 +213,8 @@ tr:nth-child(even) {
 		
 	<fieldset style="border: thin solid #000000; height: 203px; width: 276px; position: absolute; left:20px; top: 62px;">
 			<legend><strong>ইনপুট</strong></legend> 
-			<label for="txtId">আইডি :</label><input type="text" name="txtId" style= "width: 100px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right"/>
-			<label for="txtName">নাম :</label><input type="text" name="txtId" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"/>
+			<label for="txtId">আইডি :</label><input type="text" onchange="updateInput(this.value)" name="txtId" style= "width: 100px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right"/>
+			<label for="txtName">নাম :</label><input type="text" name="txtName" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"/>
 			<label for="txtSize">সাইজ :</label><input type="text" name="txtSize" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
 			<label for="txtRateStock">স্টক রেট :</label><input type="text" name="txtRateStock" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ;"/>
 			<label for="txtRateSale">সেল রেট :</label><input type="text" name="txtRateSale"style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
@@ -207,18 +222,18 @@ tr:nth-child(even) {
 		
 	<fieldset style="border: thin solid #000000; height: 177px; width: 295px; position: absolute; left:374px; top: 62px;">
 	<legend><strong >সার্চ</strong></legend>
-		<label for="slctId" style="width:70px">আইডি :</label><select name="slctId" style="width: 140px; height: 30px; border-radius: 2px; background:#E8E8E1; padding-left: 5px; padding-right: 5px; padding-top: 2px; padding-bottom:2px; margin-bottom: 5px">
-				<option></option>
-			</select>
-		<label for="slctName" style="width:70px">নাম :</label><select name="slctName" style="width: 185px; height: 30px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
-				<option></option>
-			</select>
-		<label for="slctSize" style="width:70px">সাইজ :</label><select name="slctName" style="width: 181px; height: 30px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
-				<option></option>
-			</select>
+		<label for="slctId" style="width:70px">আইডি :</label><input name="searchItemId" style="width: 140px; height: 30px; border-radius: 2px; background:#E8E8E1; padding-left: 5px; padding-right: 5px; padding-top: 2px; padding-bottom:2px; margin-bottom: 5px">
+
+			</input>
+		<label for="slctName" style="width:70px">নাম :</label><input name="searchItemName" style="width: 185px; height: 30px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
+
+			</input>
+		<label for="slctSize" style="width:70px">সাইজ :</label><input name="searchItemSize" style="width: 181px; height: 30px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
+
+			</input>
 		 	
 		<div id="layer1" style="width: 162px; height: 51px; margin-left:55px; z-index: 1">
-			<input name="btnSearch" type="button" value="সার্চ" class="button1"/>
+			<input name="searchButton" type="submit" value="সার্চ" class="button1"/>
 		
 		</div>
 	
@@ -232,20 +247,15 @@ tr:nth-child(even) {
 			    <th>স্টক রেট</th>
 			    <th>সেল রেট</th>
 			  </tr>
-			  <tr>
-			    <td>1</td>
-			    <td>Asian Paint</td>
-			    <td>1 Ltr</td>
-			    <td class="auto-style3">300</td>
-			    <td class="auto-style3">350</td>
-			  </tr>
-			  <tr>
-			    <td>2</td>
-			    <td>Asian Paint</td>
-			    <td>5 Ltr</td>
-			    <td class="auto-style3">1400</td>
-			    <td class="auto-style3">1650</td>
-			  </tr>
+			  {% for item in SEARCHED_ITEMS.all %}
+				<tr>
+					<td> {{item.id}}</td>
+					<td>{{item.itemName}}</td>
+					<td>{{item.itemSize}}</td>
+					<td>{{item.stockRate}}</td>
+					<td>{{item.saleRate}}</td>
+				</tr>
+				{% endfor %}
 
 			</table>
 		</div>

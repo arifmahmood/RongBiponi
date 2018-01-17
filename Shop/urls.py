@@ -33,7 +33,7 @@ urlpatterns = [
     #----------------- item-----------------
     url(r'^item/$',ItemManagementViews.showItemPage,name='item_page'),
     url(r'^item/add/$',ItemManagementViews.showItemAddPage,name='item_add_page'),
-        # url(r'^item/delete/$',ItemManagementViews.showItemDeletePage,name='item_delete_page'),
+    url(r'^item/delete/$',ItemManagementViews.showItemDeletePage,name='item_delete_page'),
         # url(r'^item/edit/$',ItemManagementViews.showItemEditPage,name='item_edit_page'),
 
 
