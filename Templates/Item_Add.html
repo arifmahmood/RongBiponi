@@ -164,7 +164,19 @@ tr:nth-child(even) {
 }
 
 </style>
+
+    <!--<script type="text/javascript" src="{{ STATIC_URL }} /static/jquery-3.2.1.min.js">-->
+    <!--</script>-->
+    <!--<script>-->
+        <!--$(document).ready(function(){-->
+            <!--$("addButton").click(function(){-->
+                <!--$("addButton").hide();-->
+            <!--});-->
+        <!--});-->
+    <!--</script>-->
 </head>
+
+
 
 <body style="background-color: #E4E4E0">
 
@@ -173,52 +185,53 @@ tr:nth-child(even) {
 		<strong>পণ্য</strong></div>
 </form>
 
-<form action="" method="post" style= "border-radius: 3px; width: 827px; height: 501px; top: 60px; position: absolute; background-color: #FFFFFF; left: 10px;">
-	
-		
+<form action="/item/add/" method="POST" style= "border-radius: 3px; width: 827px; height: 501px; top: 60px; position: absolute; background-color: #FFFFFF; left: 10px;">
+		{% csrf_token %}
+
 		<div id="layer2" style="position: absolute; width: 162px; height: 49px; z-index: 2; left: 9px; top: 5px; right: 409px;">
-			<button class="button"><span>মূল পাতা</span>
+			<button class="button" type="button"  onclick="location.href ='/home'"><span>মূল পাতা</span>
 			</button>
 		</div>
 		<div id="layer1" style="position: absolute; width: 143px; height: 49px; z-index: 1; left: 669px; top: 5px">
-			<button class="button"><span>লগ আউট</span>
+			<button class="button" type="button"  onclick="location.href ='/logout'"><span>লগ আউট</span>
 			</button>
-		
+
 		</div>
-		
-		<div id="layer1" style="position: absolute; width: 162px; height: 51px; z-index: 1; left: 37px; top: 289px">
-			<input name="btnAdd" type="button" value="নতুন পণ্য" class="button1"/>
-		
+
+		<div id="layer3" style="position: absolute; width: 162px; height: 51px; z-index: 1; left: 37px; top: 289px">
+			<input name="addButton" id="addButton" type="submit" value="নতুন পণ্য" class="button1"/>
+
 		</div>
-		
+
 	<fieldset style="border: thin solid #000000; height: 203px; width: 276px; position: absolute; left:20px; top: 62px;">
-			<legend><strong>ইনপুট</strong></legend> 
-			<label for="txtId">আইডি :</label><input type="text" name="txtId" style= "width: 100px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right"/>
-			<label for="txtName">নাম :</label><input type="text" name="txtId" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"/>
-			<label for="txtSize">সাইজ :</label><input type="text" name="txtSize" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"/>
-			<label for="txtRateStock">স্টক রেট :</label><input type="number" name="txtRateStock" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ;"/>
-			<label for="txtRateSale">সেল রেট :</label><input type="number" name="txtRateSale" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ;">
+			<legend><strong>ইনপুট</strong></legend>
+			<label for="txtId">আইডি :</label><input readonly type="text" name="itemId" style= "width: 100px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right"/>
+			<label for="txtName">নাম :</label><input  type="text" name="itemName" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"/>
+			<label for="txtSize">সাইজ :</label><input  type="text" name="itemSize" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"/>
+			<label for="txtRateStock">স্টক রেট :</label><input type="number" name="stockRate" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ;"/>
+			<label for="txtRateSale">সেল রেট :</label><input  type="number" name="saleRate" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ;">
 	</fieldset>
-		
+
+
+
+
+
 	<fieldset style="border: thin solid #000000; height: 177px; width: 295px; position: absolute; left:374px; top: 62px;">
 	<legend><strong >সার্চ</strong></legend>
-		<label for="slctId" style="width:70px">আইডি :</label><select name="slctId" style="width: 140px; height: 30px; border-radius: 2px; background:#E8E8E1; padding-left: 5px; padding-right: 5px; padding-top: 2px; padding-bottom:2px; margin-bottom: 5px">
-				<option></option>
-			</select>
-		<label for="slctName" style="width:70px">নাম :</label><select name="slctName" style="width: 185px; height: 30px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
-				<option></option>
-			</select>
-		<label for="slctSize" style="width:70px">সাইজ :</label><select name="slctName" style="width: 181px; height: 30px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
-				<option></option>
-			</select>
-		 	
+		<label for="slctId" style="width:70px">আইডি :</label><input name="searchItemId" style="width: 100px; height: 20px; border-radius: 2px; background:#E8E8E1; padding-left: 5px; padding-right: 5px; padding-top: 2px; padding-bottom:2px; margin-bottom: 5px">
+			</input>
+		<label for="slctName" style="width:70px">নাম :</label><input name="searchItemName" style="width: 100px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
+			</input>
+		<label for="slctSize" style="width:70px">সাইজ :</label><input name="searchItemSize" style="width: 100px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
+			</input>
+
 		<div id="layer1" style="width: 162px; height: 51px; margin-left:55px; z-index: 1">
-			<input name="btnSearch" type="button" value="সার্চ" class="button1"/>
-		
+			<input name="searchButton" type="submit" value="সার্চ" class="button1"/>
+
 		</div>
-	
+
 	</fieldset>
-		<div id="layer3" style="position: absolute; width: 422px; height: 232px; z-index: 3; left: 372px; top: 265px; overflow: auto">
+		<div id="layer4" style="position: absolute; width: 422px; height: 232px; z-index: 3; left: 372px; top: 265px; overflow: auto">
 			<table style="height: 106px">
 			  <tr>
 			    <th>আইডি</th>
@@ -227,28 +240,23 @@ tr:nth-child(even) {
 			    <th>স্টক রেট</th>
 			    <th>সেল রেট</th>
 			  </tr>
-			  <tr>
-			    <td>1</td>
-			    <td>Asian Paint</td>
-			    <td>1 Ltr</td>
-			    <td class="auto-style2">300</td>
-			    <td class="auto-style2">350</td>
-			  </tr>
-			  <tr> 
-			    <td>2</td>
-			    <td>Asian Paint</td>
-			    <td>5 Ltr</td>
-			    <td class="auto-style2">1400</td>
-			    <td class="auto-style2">1650</td>
-			  </tr>
+			  {% for item in SEARCHED_ITEMS.all %}
+				<tr>
+					<td> {{item.id}}</td>
+					<td>{{item.itemName}}</td>
+					<td>{{item.itemSize}}</td>
+					<td>{{item.stockRate}}</td>
+					<td>{{item.saleRate}}</td>
+				</tr>
+				{% endfor %}
 
 			</table>
 		</div>
-	
+
 		<div class="verticalLine" style=" position: absolute; height: 435px; width: 6px; left: 345px; top: 62px;">
-			
-		</div>	
-		
+
+		</div>
+
 </form>
 
 </body>
