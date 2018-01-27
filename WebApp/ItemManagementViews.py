@@ -87,9 +87,49 @@ def showItemDeletePage(request):
             filteredItems= Item.objects.filter(Q(id=int(searchItemId)) | Q(itemName__icontains=searchItemName) | Q(itemSize__icontains=searchItemSize))
             c.update({'SEARCHED_ITEMS': filteredItems})
 
+    elif request.POST.get('deleteButton'):
+        id = request.POST.get('itemId', '')
 
+        if id == '':
+            print('invalid')
+        else:
+            Item.objects.filter(id=id).delete()
 
-    items= 1
-    c = {'ITEMS': items}
     c.update(csrf(request))
     return render_to_response('item_delete.html', c)
+
+def showItemEditPage(request):
+    c={}
+
+    if request.POST.get('searchButton'):
+        searchItemName = request.POST.get('searchItemName','')
+        searchItemId =request.POST.get('searchItemId','')
+        searchItemSize =request.POST.get('searchItemSize','')
+        if searchItemId == '':
+            searchItemId=-1
+
+        if searchItemName =='' and searchItemSize == '':
+            filteredItems= Item.objects.filter(Q(id=int(searchItemId)))
+            c.update({'SEARCHED_ITEMS': filteredItems})
+        elif searchItemName =='':
+            filteredItems= Item.objects.filter(Q(id=int(searchItemId)) |  Q(itemSize__icontains=searchItemSize))
+            c.update({'SEARCHED_ITEMS': filteredItems})
+        elif searchItemSize == '':
+            filteredItems= Item.objects.filter(Q(id=int(searchItemId)) | Q(itemName__icontains=searchItemName))
+            c.update({'SEARCHED_ITEMS': filteredItems})
+        else:
+            filteredItems= Item.objects.filter(Q(id=int(searchItemId)) | Q(itemName__icontains=searchItemName) | Q(itemSize__icontains=searchItemSize))
+            c.update({'SEARCHED_ITEMS': filteredItems})
+
+    elif request.POST.get('saveButton'):
+        id = request.POST.get('itemId', '-1')
+        item = Item.objects.filter(id=int(id)).get()
+        item.itemName = request.POST.get('itemName', '')
+        item.itemSize = request.POST.get('itemSize', '')
+        item.stockRate = float(request.POST.get('stockRate', ''))
+        item.saleRate = float(request.POST.get('saleRate', ''))
+        item.save()
+        print("here")
+
+    c.update(csrf(request))
+    return render_to_response('item_edit.html', c)

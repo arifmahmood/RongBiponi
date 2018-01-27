@@ -16,10 +16,13 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from WebApp import LoginManagementViews, ItemManagementViews
+from WebApp import LoginManagementViews, ItemManagementViews, Ajax
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+
+    # -----------------alax-----------
+    url(r'^ajax/getcurrentitem/$', Ajax.getItem, name='ajax_item'),
 
     # ------------default  and logout ------------
     url(r'^$', LoginManagementViews.showHomePage, name='login'),
@@ -34,7 +37,7 @@ urlpatterns = [
     url(r'^item/$',ItemManagementViews.showItemPage,name='item_page'),
     url(r'^item/add/$',ItemManagementViews.showItemAddPage,name='item_add_page'),
     url(r'^item/delete/$',ItemManagementViews.showItemDeletePage,name='item_delete_page'),
-        # url(r'^item/edit/$',ItemManagementViews.showItemEditPage,name='item_edit_page'),
+    url(r'^item/edit/$',ItemManagementViews.showItemEditPage,name='item_edit_page'),
 
 
 
