@@ -27,7 +27,7 @@ class SalesRepresentative(models.Model):
 class Supplier(models.Model):
     name = models.CharField(max_length=50)
     address = models.CharField(max_length=150)
-    mobile_no = models.CharField(max_length=20)
+    mobileNo = models.CharField(max_length=20)
     salesRepresentative = models.ForeignKey(SalesRepresentative)
 
     def __str__(self):
@@ -37,7 +37,7 @@ class Supplier(models.Model):
 class Customer(models.Model):
     name = models.CharField(max_length=50)
     address = models.CharField(max_length=150)
-    mobile_no = models.CharField(max_length=20)
+    mobileNo = models.CharField(max_length=20)
     salesRepresentative = models.ForeignKey(SalesRepresentative)
 
 

@@ -164,6 +164,46 @@ tr:nth-child(even) {
 }
 
 </style>
+	<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    function getSC(num) {
+        type = document.getElementById("scType").value;
+        $.ajax({
+        url: '/ajax/getSC/',
+        type: "POST",
+        data: {
+          'id': num,
+          'type': type,
+        },
+        dataType: 'json',
+        success: function (data) {
+
+            if(data.isFound)
+            {
+             $("#scID").val(data.scID);
+             $("#scName").val(data.scName);
+             $("#scAddress").val(data.scAddress);
+             $("#scMobileNo").val(data.scMobileNo);
+
+            }
+            else
+            {
+                alert("id does not exit.");
+            }
+        }
+      });
+    }
+
+    function getPreviousSC() {
+        value = $('#scID').val();
+        getSC(value-1);
+    }
+    function getNextSC() {
+        value = $('#scID').val();
+        getSC(parseInt(value)+1);
+    }
+
+    </script>
 </head>
 
 <body style="background-color: #E4E4E0">
@@ -173,56 +213,57 @@ tr:nth-child(even) {
 		Edit Supplier &amp; Customer</div>
 </form>
 
-<form action="" method="post" style= "border-radius: 3px; width: 900px; height: 500px; top: 60px; position: absolute; background-color: #FFFFFF; left: 10px;">
+<form action="/sc/edit/" method="post" style= "border-radius: 3px; width: 900px; height: 500px; top: 60px; position: absolute; background-color: #FFFFFF; left: 10px;">
+	{% csrf_token %}
 	
 		
 		<div id="layer2" style="position: absolute; width: 162px; height: 49px; z-index: 2; left: 9px; top: 5px; right: 409px;">
-			<button class="button"><span>মূল পাতা</span>
+			<button class="button" type="button"  onclick="location.href ='/home'"><span>মূল পাতা</span>
 			</button>
 		</div>
 		<div id="layer1" style="position: absolute; width: 143px; height: 49px; z-index: 1; left: 742px; top: 5px">
-			<button class="button"><span>লগ আউট</span>
+			<button class="button" type="button"  onclick="location.href ='/logout'"><span>লগ আউট</span>
 			</button>
-		
+
 		</div>
-		
-		<a style="position: absolute; left: 47px; top: 420px; height: 32px; width: 100px; font-family: Calibri; right: 660px; padding-top: 8px;" class="button1">&laquo; পূর্বে</a>
-		<a style="position: absolute; left: 158px; top: 420px; height: 32px; width: 100px; font-family: Calibri; padding-top: 8px;" class="button1" >পরে &raquo;</a>
+
+		<a style="position: absolute; left: 47px; top: 420px; height: 32px; width: 100px; font-family: Calibri; right: 660px; padding-top: 8px;" type="button" class="button1" onclick="getPreviousSC()">&laquo; পূর্বে</a>
+		<a style="position: absolute; left: 158px; top: 420px; height: 32px; width: 100px; font-family: Calibri; padding-top: 8px;" type="button" class="button1" onclick="getNextSC()" >পরে &raquo;</a>
 		
 		<div id="layer1" style="position: absolute; width: 162px; height: 51px; z-index: 1; left: 71px; top: 372px">
-			<input name="btnSave" type="button" value="সেভ" class="button1"/>
+			<input name="saveButton" type="submit" value="সেভ" class="button1"/>
 		
 		</div>
 		
 	<fieldset style="border: thin solid #000000; height: 284px; width: 276px; position: absolute; left:20px; top: 62px;">
 			<legend><strong>Input Field</strong></legend> 
-			<label for="txtId">আইডি :</label><input type="text" name="txtId" style= "width: 100px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right"></input>
-			<label for="txtName">নাম :</label><input type="text" name="txtId" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"></input>
+			<label for="txtId">আইডি :</label><input type="text" onchange="getSC(this.value)" id="scID" name="scID" style= "width: 100px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right"></input>
+			<label for="txtName">নাম :</label><input type="text" id="scName" name="scName" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"></input>
 			<p class="AlignToTextArea" style="margin-bottom: 0; margin-top: 0">
-			<label for="txtaddress">ঠিকানা :</label><textarea rows="4" name="txtAddress" style= "width: 159px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; display: inline-block"> </textarea>
+			<label for="txtaddress">ঠিকানা :</label><textarea rows="4" id="scAddress" name="scAddress" style= "width: 159px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; display: inline-block"> </textarea>
 			</p>
-			<label for="txtRateStock">মোবাইল নং :</label><input type="text" name="txtRateStock" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align; left: " onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;"></input>
+			<label for="txtRateStock">মোবাইল নং :</label><input type="text" id="scMobileNo" name="scMobileNo" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align; left: " onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;"></input>
 			<label for="slctType" style="width:80px; margin-right: 15px">ধরন :</label>
-			<select name="slctType" style="width: 140px; height: 30px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
-				<option></option>
+			<select id="scType" name="scType" style="width: 140px; height: 30px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
+				<option value="supplier">Supplier</option>
+				<option value="customer">Customer</option>
 			</select>
 			<label for="slctSR" style="width:80px; margin-right: 15px">এসআর :</label>
-			<select name="slctSR" style="width: 140px; height: 30px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
-				<option></option>
-			</select>
+			<select id="scSR" name="scSR" style="width: 140px; height: 30px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
+                    <option value="-1"></option>
+				{% for sr in SR.all %}
+					<option value="{{sr.id}}" >{{sr.name}}</option>
+				{% endfor %}
+            </select>
 	</fieldset>
 		
 	<fieldset style="border: thin solid #000000; height: 140px; width: 292px; position: absolute; left:374px; top: 62px;">
 	<legend><strong >Search Field</strong></legend>
-		<label for="slctName" style="width:80px">নাম :</label><select name="slctName" style="width: 185px; height: 30px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
-				<option></option>
-			</select>
-		<label for="slctSize" style="width:80px">মোবাইল নং :</label><select name="slctName" style="width: 181px; height: 30px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
-				<option></option>
-			</select>
-		 	
-		<div id="layer1" style="width: 162px; height: 51px; margin-left:70px; z-index: 1">
-			<input name="btnSearch" type="button" value="সার্চ" class="button1"/>
+		<label for="slctName" style="width:80px">নাম :</label><input id="scNameSearch" name="scNameSearch" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; margin-bottom: 5px"></input>
+		<label for="slctSize" style="width:80px">মোবাইল নং :</label><input id="scMobileNoSearch" name="scMobileNoSearch" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; margin-bottom: 5px"></input>
+
+		<div id="layer10" style="width: 162px; height: 51px; margin-left:70px; z-index: 1">
+			<input name="searchButton" type="submit" value="সার্চ" class="button1"/>
 		
 		</div>
 	
@@ -235,18 +276,29 @@ tr:nth-child(even) {
 			    <th>মোবাইল</th>
 			    <th>এসআর</th>
 			  </tr>
+			{% for sc in FILTERED_C.all %}
 			  <tr>
-			    <td>Ashraf Ali</td>
-			    <td>Badurtola, Bogra.</td>
-			    <td>01554236589</td>
-			    <td>Rofiqul</td>
+			    <td>{{sc.name}}</td>
+			    <td>{{sc.address}}</td>
+			    <td>{{sc.mobileNo}}</td>
+			    <td>{{sc.salesRepresentative}}</td>
 			  </tr>
+			{% endfor %}
+				<tr>
+			    	<td>-</td>
+			    	<td>-</td>
+			    	<td>-</td>
+			    	<td>-</td>
+			  	</tr>
+
+			{% for sc in FILTERED_S.all %}
 			  <tr>
-			    <td>Rahman Bros</td>
-			    <td>Matidali Mor, Bogra.</td>
-			    <td>01678541269</td>
-			    <td>Aminul</td>
+			    <td>{{sc.name}}</td>
+			    <td>{{sc.address}}</td>
+			    <td>{{sc.mobileNo}}</td>
+			    <td>{{sc.salesRepresentative}}</td>
 			  </tr>
+			{% endfor %}
 
 			</table>
 		</div>
