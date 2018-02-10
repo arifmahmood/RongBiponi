@@ -16,7 +16,8 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from WebApp import LoginManagementViews, ItemManagementViews, Ajax, SupplierAndCustomerManagementView, SaleView
+from WebApp import LoginManagementViews, ItemManagementViews, Ajax, SupplierAndCustomerManagementView, SaleView, \
+    ReportManagement
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -58,7 +59,11 @@ urlpatterns = [
     url(r'^sale/$',SaleView.salePageLoad, name='sale_page'),
 #------------------purchase-----------------------
     url(r'^purchase/$',SaleView.purchasePageLoad, name='purchase_page'),
-
-
+#------------------sr-----------------------
+    url(r'^sr/$',SaleView.showSrPage, name='showSrPage'),
+    url(r'^sr/add/$',SaleView.showSrPage, name='showSrPage'),
+#------------------Report Purchase-----------------------
+    url(r'^report/purchase/$',ReportManagement.purchase, name='showSrPage'),
+    url(r'^report/sale/$',ReportManagement.sale, name='showSrPage'),
 
 ]

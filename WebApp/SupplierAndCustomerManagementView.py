@@ -5,7 +5,6 @@ from django.template.context_processors import csrf
 
 from WebApp.models import SalesRepresentative, Customer, Supplier
 
-
 def showScPage(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect('/login')
@@ -13,7 +12,6 @@ def showScPage(request):
     c = {}
     c.update(csrf(request))
     return render_to_response('sc.html', c)
-
 
 def showScAddPage(request):
     if not request.user.is_authenticated:
@@ -60,7 +58,6 @@ def showScAddPage(request):
     c.update(csrf(request))
     return render_to_response('sc_add.html', c)
 
-
 def showScDeletePage(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect('/login')
@@ -96,7 +93,6 @@ def showScDeletePage(request):
     c={'SR': SalesRepresentative.objects.all()}
     c.update(csrf(request))
     return render_to_response('sc_delete.html', c)
-
 
 def showScEditPage(request):
     if not request.user.is_authenticated:

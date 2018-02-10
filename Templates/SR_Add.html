@@ -173,48 +173,49 @@ tr:nth-child(even) {
 		এসআর</div>
 </form>
 
-<form action="" method="post" style= "border-radius: 3px; width: 900px; height: 438px; top: 60px; position: absolute; background-color: #FFFFFF; left: 10px;">
-	
-		
+<form action="/sr/add/" method="post" style= "border-radius: 3px; width: 900px; height: 438px; top: 60px; position: absolute; background-color: #FFFFFF; left: 10px;">
+		{% csrf_token %}
+
+
 		<div id="layer2" style="position: absolute; width: 162px; height: 49px; z-index: 2; left: 9px; top: 5px; right: 409px;">
-			<button class="button"><span>মূল পাতা</span>
+			<button class="button" type="submit" formaction="/home/"><span>মূল পাতা</span>
 			</button>
 		</div>
 		<div id="layer1" style="position: absolute; width: 143px; height: 49px; z-index: 1; left: 742px; top: 5px">
-			<button class="button"><span>লগ আউট</span>
+			<button class="button" type="submit" formaction="/logout/"><span>লগ আউট</span>
 			</button>
-		
+
 		</div>
-		
+
 		<div id="layer1" style="position: absolute; width: 162px; height: 51px; z-index: 1; left: 71px; top: 272px">
-			<input name="btnAdd" type="button" value="Add" class="button1"/>
-		
+			<input name="addButton" id="addButton" type="submit" value="Add" class="button1"/>
+
 		</div>
-		
+
 	<fieldset style="border: thin solid #000000; height: 173px; width: 276px; position: absolute; left:20px; top: 62px;">
-			<legend><strong>Input Field</strong></legend> 
-			<label for="txtName">নাম :</label><input type="text" name="txtId" style= "width: 158px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"></input>
-			<p class="AlignToTextArea" style="margin-bottom: 0; margin-top: 0; width: 272px;">
-			<label for="txtaddress">ঠিকানা :</label><textarea rows="4" name="txtAddress" style= "width: 159px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; display: inline-block"> </textarea>
+			<legend><strong>Input Field</strong></legend>
+			<label for="txtName">নাম :</label><input type="text" id="srName" name="srName" style= "width: 135px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"></input>
+			<p class="AlignToTextArea" style="margin-bottom: 0; margin-top: 0; width: 250px;">
+			<label for="txtaddress">ঠিকানা :</label><textarea rows="4" id="srAddress" name="srAddress" style= "width: 135px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; display: inline-block"> </textarea>
 			</p>
-			<label for="txtRateStock">মোবাইল নং :</label><input type="text" name="txtRateStock" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align; left: " onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;"></input>
+			<label for="txtRateStock">মোবাইল নং :</label><input type="text" id="srMobileNo" name="srMobileNo" style= "width: 135px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align; left: " onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;"></input>
 
 	</fieldset>
-		
+
 	<fieldset style="border: thin solid #000000; height: 140px; width: 292px; position: absolute; left:374px; top: 62px;">
 	<legend><strong >Search Field</strong></legend>
-		<label for="slctName" style="width:80px">নাম :</label><select name="slctName" style="width: 185px; height: 30px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
-				<option></option>
-			</select>
-		<label for="slctSize" style="width:80px">মোবাইল নং :</label><select name="slctName" style="width: 181px; height: 30px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
-				<option></option>
-			</select>
-		 	
+		<label for="slctName" style="width:60px">নাম :</label><input id="srNameSearch" name="srNameSearch" style="width: 185px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
+
+			</input>
+		<label for="slctSize" style="width:60px">মোবাইল নং :</label><input id="srMobileNoSearch" name="srMobileNoSearch" style="width: 181px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
+
+			</input>
+
 		<div id="layer1" style="width: 162px; height: 51px; margin-left:70px; z-index: 1">
-			<input name="btnSearch" type="button" value="সার্চ" class="button1"/>
-		
+			<input name="searchButton" type="submit" value="সার্চ" class="button1"/>
+
 		</div>
-	
+
 	</fieldset>
 		<div id="layer3" style="position: absolute; width: 512px; height: 189px; z-index: 3; left: 372px; top: 235px; overflow: auto">
 			<table style="height: 106px">
@@ -223,16 +224,13 @@ tr:nth-child(even) {
 			    <th>ঠিকানা</th>
 			    <th>মোবাইল</th>
 			  </tr>
-			  <tr>
-			    <td>Rofiqul</td>
-			    <td>Baropur, Bogra.</td>
-			    <td>01554236589</td>
-			  </tr>
-			  <tr>
-			    <td>Aminul</td>
-			    <td>Rahman Natar, Bogra.</td>
-			    <td>01678541269</td>
-			  </tr>
+			  {% for sr in FILTERED_SR %}
+                <tr>
+                    <td>{{sr.name}}</td>
+                    <td>{{sr.address}}</td>
+                    <td>{{sr.mobileNo}}</td>
+                </tr>
+               {% endfor %}
 
 			</table>
 		</div>

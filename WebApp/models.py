@@ -19,6 +19,7 @@ class Item(models.Model):
 class SalesRepresentative(models.Model):
     name = models.CharField(max_length=50)
     address = models.CharField(max_length=150)
+    mobileNo= models.CharField(max_length=20)
 
     def __str__(self):
         return self.name
@@ -63,6 +64,9 @@ class SaleMemo(models.Model):
     saleItem = models.ManyToManyField(SaleItem)
     discount = models.DecimalField(max_digits=10, decimal_places=2,default=0, blank=True, null=True)
     paid = models.DecimalField(max_digits=10, decimal_places=2,default=0, blank=True, null=True)
+    due=models.DecimalField(max_digits=10, decimal_places=2,default=0, blank=True, null=True)
+    memoTotal= models.DecimalField(max_digits=10, decimal_places=2,default=0, blank=True, null=True)
+    actualTotal= models.DecimalField(max_digits=10, decimal_places=2,default=0, blank=True, null=True)
     def getTotal(self):
         # type: () -> object
 
@@ -87,7 +91,9 @@ class PurchaseMemo(models.Model):
     purchaseItem = models.ManyToManyField(PurchaseItem)
     discount = models.DecimalField(max_digits=10, decimal_places=2, default=0, blank=True, null=True)
     paid = models.DecimalField(max_digits=10, decimal_places=2,default=0, blank=True, null=True)
-
+    memoTotal= models.DecimalField(max_digits=10, decimal_places=2,default=0, blank=True, null=True)
+    actualTotal= models.DecimalField(max_digits=10, decimal_places=2,default=0, blank=True, null=True)
+    due=models.DecimalField(max_digits=10, decimal_places=2,default=0, blank=True, null=True)
 
 
 

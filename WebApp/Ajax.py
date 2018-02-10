@@ -163,6 +163,9 @@ def saveMemo(request):
         saleMemoObject = SaleMemo.objects.filter(id=int(memoNo)).get()
         saleMemoObject.discount = float(discount)
         saleMemoObject.paid = float(paid)
+        saleMemoObject.memoTotal= saleMemoObject.getTotal()
+        saleMemoObject.actualTotal= float(saleMemoObject.getTotal())-float(discount)
+        saleMemoObject.due = float(saleMemoObject.getTotal())-float(discount)-float(paid)
         saleMemoObject.save()
         data = {
             'isSuccessful': True,
@@ -241,6 +244,9 @@ def saveMemoPurchase(request):
         saleMemoObject = PurchaseMemo.objects.filter(id=int(memoNo)).get()
         saleMemoObject.discount = float(discount)
         saleMemoObject.paid = float(paid)
+        saleMemoObject.memoTotal= saleMemoObject.getTotal()
+        saleMemoObject.actualTotal= float(saleMemoObject.getTotal())-float(discount)
+        saleMemoObject.due = float(saleMemoObject.getTotal())-float(discount)-float(paid)
         saleMemoObject.save()
         data = {
             'isSuccessful': True,
