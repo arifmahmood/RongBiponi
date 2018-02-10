@@ -57,6 +57,7 @@ class SaleItem(models.Model):
 
 
 class SaleMemo(models.Model):
+
     date = models.DateField()
     party = models.ForeignKey(Customer)
     saleItem = models.ManyToManyField(SaleItem)
@@ -70,6 +71,7 @@ class SaleMemo(models.Model):
 
 class PurchaseItem(models.Model):
     purchaseRate = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    total = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     quantity = models.IntegerField(default=0)
     free = models.IntegerField(default=0)
     item = models.ForeignKey(Item)

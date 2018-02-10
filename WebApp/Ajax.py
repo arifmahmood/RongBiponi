@@ -5,7 +5,7 @@ from django.shortcuts import render_to_response
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
 
-from WebApp.models import Item, Customer, Supplier, SaleMemo, SalesRepresentative, SaleItem
+from WebApp.models import Item, Customer, Supplier, SaleMemo, SalesRepresentative, SaleItem, PurchaseMemo, PurchaseItem
 
 
 @csrf_exempt
@@ -109,6 +109,8 @@ def addNewDetails(request):
         saleRate = request.POST.get('itemRate', '')
         saleItem = SaleItem(item=item, quantity=quantity,free=free,saleRate=saleRate)
         saleItem.save()
+        saleItem.total = float((int(quantity) - int(free)) * float(saleRate))
+        saleItem.save()
         saleMemoObject = SaleMemo(party=customer, date=date)
         saleMemoObject.save()
         saleMemoObject.saleItem.add(saleItem)
@@ -206,3 +208,134 @@ def loadMemoObject(request):
     return JsonResponse(data)
 
 
+@csrf_exempt
+def getCustomerAddressPurchase(request):
+    customerID = request.POST.get('id', '')
+
+    itemExist = Supplier.objects.filter(id=int(customerID)).exists()
+    data = {
+        'isFound': False,
+    }
+    if itemExist:
+        sc = Supplier.objects.get(id=int(customerID))
+        data = {
+            'isFound': True,
+            'customerAddress': sc.address,
+            'sr': sc.salesRepresentative.name,
+        }
+
+    return JsonResponse(data);
+
+
+@csrf_exempt
+def saveMemoPurchase(request):
+    memoNo = request.POST.get('memoNo', '')
+    discount = request.POST.get('discount', '')
+    paid = request.POST.get('paid', '')
+    if memoNo is '':
+        data = {
+            'isSuccessful': False,
+
+        }
+    else:
+        saleMemoObject = PurchaseMemo.objects.filter(id=int(memoNo)).get()
+        saleMemoObject.discount = float(discount)
+        saleMemoObject.paid = float(paid)
+        saleMemoObject.save()
+        data = {
+            'isSuccessful': True,
+            'memoNo': memoNo,
+        }
+
+    return JsonResponse(data)
+
+@csrf_exempt
+def addNewDetailsPurchase(request):
+    memoNo= request.POST.get('memoNo', '')
+    dataForTable=''
+    if memoNo is '':
+        date = request.POST.get('date', '')
+        supplierID = request.POST.get('customer', '')
+        supplier = Supplier.objects.filter(id=int(supplierID)).get()
+        itemID = request.POST.get('itemID', '')
+        item = Item.objects.filter(id=int(itemID)).get()
+        quantity = request.POST.get('itemUnit','')
+        free = request.POST.get('itemFree','')
+        purchaseRate = request.POST.get('itemRate', '')
+        purchaseItem = PurchaseItem(item=item, quantity=quantity,free=free,purchaseRate=purchaseRate)
+        purchaseItem.save()
+        purchaseItem.total = float((int(quantity) - int(free)) * float(purchaseRate))
+        purchaseItem.save()
+        purchaseMemoObject = PurchaseMemo(party=supplier, date=date)
+        purchaseMemoObject.save()
+        purchaseMemoObject.purchaseItem.add(purchaseItem)
+        purchaseMemoObject.save()
+
+    else:
+        purchaseMemoObject = PurchaseMemo.objects.filter(id=int(memoNo)).get()
+        date = request.POST.get('date', '')
+        purchaseMemoObject.date= date
+
+        customerID = request.POST.get('customer', '')
+        customer = Supplier.objects.filter(id=int(customerID)).get()
+        purchaseMemoObject.party = customer
+
+        itemID = request.POST.get('itemID', '')
+        item = Item.objects.filter(id=int(itemID)).get()
+        quantity = request.POST.get('itemUnit', '')
+        free = request.POST.get('itemFree', '')
+        saleRate = request.POST.get('itemRate', '')
+        saleItem = PurchaseItem(item=item, quantity=quantity, free=free, purchaseRate=saleRate)
+        saleItem.save()
+        saleItem.total= float((int(quantity) -int(free))*float(saleRate))
+        saleItem.save()
+        purchaseMemoObject.purchaseItem.filter(item=saleItem.item).delete()
+        purchaseMemoObject.purchaseItem.add(saleItem)
+        purchaseMemoObject.save()
+
+    for i in purchaseMemoObject.purchaseItem.all():
+        dataForTable+='<tr><td>'+str(i.item.itemName)+'</td>'+'<td>'+str(i.item.itemSize)+'</td>'+'<td>'+str(i.quantity)+'</td>'+'<td>'+str(i.free)+'</td>'+'<td>'+str(i.purchaseRate)+'</td>'+'<td>'+str(i.itemTotal())+'</td>'+'</tr>'
+
+    data = {
+        'isFound': True,
+        'saleMemoObjectID':purchaseMemoObject.id,
+        'dataForTable':dataForTable,
+        'tempTotal':purchaseMemoObject.getTotal(),
+    }
+    return JsonResponse(data)
+
+@csrf_exempt
+def loadMemoObjectPurchase(request):
+    memoNo = request.POST.get('memoNo', '')
+    memoExist = PurchaseMemo.objects.filter(id=int(memoNo)).exists()
+
+    if memoNo is '' or not memoExist:
+        data = {
+            'isSuccessful': False,
+
+
+        }
+    else:
+        saleMemoObject = PurchaseMemo.objects.filter(id=int(memoNo)).get()
+        dataForTable=''
+        for i in saleMemoObject.purchaseItem.all():
+            dataForTable += '<tr><td>' + str(i.item.itemName) + '</td>' + '<td>' + str(
+                i.item.itemSize) + '</td>' + '<td>' + str(i.quantity) + '</td>' + '<td>' + str(
+                i.free) + '</td>' + '<td>' + str(i.purchaseRate) + '</td>' + '<td>' + str(i.itemTotal()) + '</td>' + '</tr>'
+        date= saleMemoObject.date
+
+        data = {
+            'isFound': True,
+            'saleMemoObjectID': saleMemoObject.id,
+            'date': date,
+            'customer': saleMemoObject.party.name,
+            'address': saleMemoObject.party.address,
+            'sr': saleMemoObject.party.salesRepresentative.name,
+            'dataForTable': dataForTable,
+            'tempTotal': saleMemoObject.getTotal(),
+            'discount': saleMemoObject.discount,
+            'paid': saleMemoObject.paid,
+        }
+
+
+    return JsonResponse(data)

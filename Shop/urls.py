@@ -28,6 +28,10 @@ urlpatterns = [
     url(r'^ajax/addNewDetails/$', Ajax.addNewDetails, name='addNewDetails'),
     url(r'^ajax/saveMemo/$', Ajax.saveMemo, name='addNewDetails'),
     url(r'^ajax/loadMemoObject/$', Ajax.loadMemoObject, name='loadMemoObject'),
+    url(r'^ajax/getCustomerAddressPurchase/$', Ajax.getCustomerAddressPurchase, name='getCustomerAddressPurchase'),
+    url(r'^ajax/addNewDetailsPurchase/$', Ajax.addNewDetailsPurchase, name='addNewDetailsPurchase'),
+    url(r'^ajax/saveMemoPurchase/$', Ajax.saveMemoPurchase, name='saveMemoPurchase'),
+    url(r'^ajax/loadMemoObjectPurchase/$', Ajax.loadMemoObjectPurchase, name='loadMemoObjectPurchase'),
 
     # ------------default  and logout ------------
     url(r'^$', LoginManagementViews.showHomePage, name='login'),
@@ -52,6 +56,8 @@ urlpatterns = [
 
 #------------------sales-----------------------
     url(r'^sale/$',SaleView.salePageLoad, name='sale_page'),
+#------------------purchase-----------------------
+    url(r'^purchase/$',SaleView.purchasePageLoad, name='purchase_page'),
 
 
 
