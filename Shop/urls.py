@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from WebApp import LoginManagementViews, ItemManagementViews, Ajax, SupplierAndCustomerManagementView
+from WebApp import LoginManagementViews, ItemManagementViews, Ajax, SupplierAndCustomerManagementView, SaleView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,6 +24,10 @@ urlpatterns = [
     # -----------------alax-----------
     url(r'^ajax/getcurrentitem/$', Ajax.getItem, name='ajax_item'),
     url(r'^ajax/getSC/$', Ajax.getSC, name='ajax_sc'),
+    url(r'^ajax/getCustomerAddress/$', Ajax.getCustomerAddress, name='getCustomerAddress'),
+    url(r'^ajax/addNewDetails/$', Ajax.addNewDetails, name='addNewDetails'),
+    url(r'^ajax/saveMemo/$', Ajax.saveMemo, name='addNewDetails'),
+    url(r'^ajax/loadMemoObject/$', Ajax.loadMemoObject, name='loadMemoObject'),
 
     # ------------default  and logout ------------
     url(r'^$', LoginManagementViews.showHomePage, name='login'),
@@ -46,6 +50,8 @@ urlpatterns = [
     url(r'^sc/delete/$', SupplierAndCustomerManagementView.showScDeletePage, name='sc_delete_page'),
     url(r'^sc/edit/$',SupplierAndCustomerManagementView.showScEditPage,name='sc_edit_page'),
 
+#------------------sales-----------------------
+    url(r'^sale/$',SaleView.salePageLoad, name='sale_page'),
 
 
 

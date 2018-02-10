@@ -1,7 +1,11 @@
+from time import strftime
+
 from django.http import JsonResponse
+from django.shortcuts import render_to_response
+from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
 
-from WebApp.models import Item, Customer, Supplier
+from WebApp.models import Item, Customer, Supplier, SaleMemo, SalesRepresentative, SaleItem
 
 
 @csrf_exempt
@@ -71,3 +75,134 @@ def getSC(request):
             print(sc.salesRepresentative.name)
         return JsonResponse(data)
     return JsonResponse(data)
+
+@csrf_exempt
+def getCustomerAddress(request):
+    customerID = request.POST.get('id', '')
+
+    itemExist = Customer.objects.filter(id=int(customerID)).exists()
+    data = {
+        'isFound': False,
+    }
+    if itemExist:
+        sc = Customer.objects.get(id=int(customerID))
+        data = {
+            'isFound': True,
+            'customerAddress': sc.address,
+            'sr': sc.salesRepresentative.name,
+        }
+
+    return JsonResponse(data);
+
+@csrf_exempt
+def addNewDetails(request):
+    memoNo= request.POST.get('memoNo', '')
+    dataForTable=''
+    if memoNo is '':
+        date = request.POST.get('date', '')
+        customerID = request.POST.get('customer', '')
+        customer = Customer.objects.filter(id=int(customerID)).get()
+        itemID = request.POST.get('itemID', '')
+        item = Item.objects.filter(id=int(itemID)).get()
+        quantity = request.POST.get('itemUnit','')
+        free = request.POST.get('itemFree','')
+        saleRate = request.POST.get('itemRate', '')
+        saleItem = SaleItem(item=item, quantity=quantity,free=free,saleRate=saleRate)
+        saleItem.save()
+        saleMemoObject = SaleMemo(party=customer, date=date)
+        saleMemoObject.save()
+        saleMemoObject.saleItem.add(saleItem)
+        saleMemoObject.save()
+
+    else:
+        saleMemoObject = SaleMemo.objects.filter(id=int(memoNo)).get()
+        date = request.POST.get('date', '')
+        saleMemoObject.date= date
+
+        customerID = request.POST.get('customer', '')
+        customer = Customer.objects.filter(id=int(customerID)).get()
+        saleMemoObject.party = customer
+
+        itemID = request.POST.get('itemID', '')
+        item = Item.objects.filter(id=int(itemID)).get()
+        quantity = request.POST.get('itemUnit', '')
+        free = request.POST.get('itemFree', '')
+        saleRate = request.POST.get('itemRate', '')
+        saleItem = SaleItem(item=item, quantity=quantity, free=free, saleRate=saleRate)
+        saleItem.save()
+        saleItem.total= float((int(quantity) -int(free))*float(saleRate))
+        saleItem.save()
+        saleMemoObject.saleItem.filter(item=saleItem.item).delete()
+        saleMemoObject.saleItem.add(saleItem)
+        saleMemoObject.save()
+
+    for i in saleMemoObject.saleItem.all():
+        dataForTable+='<tr><td>'+str(i.item.itemName)+'</td>'+'<td>'+str(i.item.itemSize)+'</td>'+'<td>'+str(i.quantity)+'</td>'+'<td>'+str(i.free)+'</td>'+'<td>'+str(i.saleRate)+'</td>'+'<td>'+str(i.itemTotal())+'</td>'+'</tr>'
+
+    data = {
+        'isFound': True,
+        'saleMemoObjectID':saleMemoObject.id,
+        'dataForTable':dataForTable,
+        'tempTotal':saleMemoObject.getTotal(),
+    }
+    return JsonResponse(data)
+
+@csrf_exempt
+def saveMemo(request):
+    memoNo = request.POST.get('memoNo', '')
+    discount = request.POST.get('discount', '')
+    paid = request.POST.get('paid', '')
+    if memoNo is '':
+        data = {
+            'isSuccessful': False,
+
+        }
+    else:
+        saleMemoObject = SaleMemo.objects.filter(id=int(memoNo)).get()
+        saleMemoObject.discount = float(discount)
+        saleMemoObject.paid = float(paid)
+        saleMemoObject.save()
+        data = {
+            'isSuccessful': True,
+            'memoNo': memoNo,
+        }
+
+    return JsonResponse(data)
+
+@csrf_exempt
+def loadMemoObject(request):
+    memoNo = request.POST.get('memoNo', '')
+    memoExist = SaleMemo.objects.filter(id=int(memoNo)).exists()
+
+    if memoNo is '' or not memoExist:
+        data = {
+            'isSuccessful': False,
+
+
+        }
+    else:
+        saleMemoObject = SaleMemo.objects.filter(id=int(memoNo)).get()
+        dataForTable=''
+        for i in saleMemoObject.saleItem.all():
+            dataForTable += '<tr><td>' + str(i.item.itemName) + '</td>' + '<td>' + str(
+                i.item.itemSize) + '</td>' + '<td>' + str(i.quantity) + '</td>' + '<td>' + str(
+                i.free) + '</td>' + '<td>' + str(i.saleRate) + '</td>' + '<td>' + str(i.itemTotal()) + '</td>' + '</tr>'
+        date= saleMemoObject.date
+
+        data = {
+            'isFound': True,
+            'saleMemoObjectID': saleMemoObject.id,
+            'date': date,
+            'customer': saleMemoObject.party.name,
+            'address': saleMemoObject.party.address,
+            'sr': saleMemoObject.party.salesRepresentative.name,
+            'dataForTable': dataForTable,
+            'tempTotal': saleMemoObject.getTotal(),
+            'discount': saleMemoObject.discount,
+            'paid': saleMemoObject.paid,
+        }
+
+
+    return JsonResponse(data)
+
+

@@ -40,19 +40,20 @@ class Customer(models.Model):
     mobileNo = models.CharField(max_length=20)
     salesRepresentative = models.ForeignKey(SalesRepresentative)
 
-
     def __str__(self):
         return self.name
 
 
 class SaleItem(models.Model):
+    saleRate = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     quantity = models.IntegerField(default=0)
     free = models.IntegerField(default=0)
     item = models.ForeignKey(Item)
-
+    total = models.DecimalField(max_digits=10, decimal_places=2,default=0, blank=True, null=True)
 
     def itemTotal(self):
-        return (self.quantity - self.free) * self.item.sale_rate
+        total=(self.quantity - self.free) * self.saleRate
+        return (self.quantity - self.free) * self.saleRate
 
 
 class SaleMemo(models.Model):
@@ -61,20 +62,20 @@ class SaleMemo(models.Model):
     saleItem = models.ManyToManyField(SaleItem)
     discount = models.DecimalField(max_digits=10, decimal_places=2,default=0, blank=True, null=True)
     paid = models.DecimalField(max_digits=10, decimal_places=2,default=0, blank=True, null=True)
-
     def getTotal(self):
         # type: () -> object
+
         return sum(i.itemTotal() for i in self.saleItem.all())
 
 
 class PurchaseItem(models.Model):
+    purchaseRate = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     quantity = models.IntegerField(default=0)
     free = models.IntegerField(default=0)
     item = models.ForeignKey(Item)
 
-
     def itemTotal(self):
-        return (self.quantity - self.free) * self.item.saleRate
+        return (self.quantity - self.free) * self.purchaseRate
 
 
 class PurchaseMemo(models.Model):
