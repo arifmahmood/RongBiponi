@@ -13,7 +13,7 @@ def purchase(request):
 
     c = {'OBJECTS': objects, }
     c.update(csrf(request))
-    return render_to_response('rptPurchase.html', c)
+    return render_to_response('rpt_purchase.html', c)
 
 
 def sale(request):
@@ -24,4 +24,4 @@ def sale(request):
         objects= SaleMemo.objects.filter(date__range=[dateFrom, dateTo])
     c = {'OBJECTS': objects, }
     c.update(csrf(request))
-    return render_to_response('rptSale.html', c)
+    return render_to_response('rpt_sale.html', c)

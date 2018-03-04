@@ -112,8 +112,8 @@ def showSrPage(request):
 
         c = { 'FILTERED_SR': filteredSr}
         c.update(csrf(request))
-        return render_to_response('SR_ADD.html', c)
+        return render_to_response('sr_add.html', c)
 
     c.update(csrf(request))
-    return render_to_response('SR_ADD.html', c)
+    return render_to_response('sr_add.html', c)
 

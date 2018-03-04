@@ -17,7 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from WebApp import LoginManagementViews, ItemManagementViews, Ajax, SupplierAndCustomerManagementView, SaleView, \
-    ReportManagement
+    ReportManagement, ReturnManagementView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -33,6 +33,7 @@ urlpatterns = [
     url(r'^ajax/addNewDetailsPurchase/$', Ajax.addNewDetailsPurchase, name='addNewDetailsPurchase'),
     url(r'^ajax/saveMemoPurchase/$', Ajax.saveMemoPurchase, name='saveMemoPurchase'),
     url(r'^ajax/loadMemoObjectPurchase/$', Ajax.loadMemoObjectPurchase, name='loadMemoObjectPurchase'),
+    url(r'^ajax/loadMemoObjectSalesReturn/$', Ajax.loadMemoObjectSalesReturn, name='loadMemoObject'),
 
     # ------------default  and logout ------------
     url(r'^$', LoginManagementViews.showHomePage, name='login'),
@@ -62,6 +63,9 @@ urlpatterns = [
 #------------------sr-----------------------
     url(r'^sr/$',SaleView.showSrPage, name='showSrPage'),
     url(r'^sr/add/$',SaleView.showSrPage, name='showSrPage'),
+#------------------sr-----------------------
+    url(r'^salesreturn/$',ReturnManagementView.salesReturn, name='showSrPage'),
+
 #------------------Report Purchase-----------------------
     url(r'^report/purchase/$',ReportManagement.purchase, name='showSrPage'),
     url(r'^report/sale/$',ReportManagement.sale, name='showSrPage'),

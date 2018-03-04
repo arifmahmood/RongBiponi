@@ -1,8 +1,9 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-<style>
+    <style>
 
 label{
 display:inline-block;
@@ -161,158 +162,191 @@ tr:nth-child(even) {
 	text-align: right;
 }
 
-</style>
+
+    </style>
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body style="background-color: #E4E4E0">
 
-<form action="" method="post" style="border-radius:3px; width: 1100px; height: 40px; top: 10px; position: absolute; background-color: #666699; left: 10px;">
-	<div class="auto-style1">
-		<strong>Add Sale Entry</strong></div>
+<form action="" method="post"
+      style="border-radius:3px; width: 1100px; height: 40px; top: 10px; position: absolute; background-color: #666699; left: 10px;">
+    <div class="auto-style1">
+        <strong>Add Sale Entry</strong></div>
 </form>
 
-<form action="" method="post" style="border-radius:3px; width: 1100px; height: 571px; top: 60px; position: absolute; background-color: #FFFFFF; left: 10px;">
-		<div id="layer2" style="position: absolute; width: 162px; height: 49px; z-index: 2; left: 36px; top: 5px; right: 902px;">
-			<button class="button"><span>মুল পাতা</span>
-			</button>
-		</div>
-		<div id="layer1" style="position: absolute; width: 143px; height: 49px; z-index: 1; left: 934px; top: 5px">
-			<button class="button"><span>লগ আউট</span>
-			</button>
-		</div>
-		
-		<div id="layer1" style="position: absolute; width: 157px; height: 51px; z-index: 1; left: 502px; top: 5px; right: 441px;">
-			<input name="btnAdd" type="button" value="নতুন ডিটেইল" class="button1" style="width: 150px"/>
-		</div>
-		
-		<div id="layer1" style="position: absolute; width: 90px; height: 51px; z-index: 1; left: 675px; top: 4px; right: 335px;">
-			<input name="btnDone" type="button" value="সেভ" class="button1" style="width: 77px"/>
-		</div>
-		
-		<div id="layer1" style="position: absolute; width: 90px; height: 51px; z-index: 1; left: 900px; top: 311px; right: 109px;">
-			<input name="btnEdit" type="button" value="এডিট" class="button1" style="width: 77px"/>
-		</div>
-		
-		<div id="layer1" style="position: absolute; width: 90px; height: 51px; z-index: 1; left: 991px; top: 311px; right: 18px;">
-			<input name="btnDelete" type="button" value="ডিলিট" class="button1" style="width: 77px"/>
-		</div>
+<form id="mainForm" action="" method="post"
+      style="border-radius:3px; width: 1100px; height: 571px; top: 60px; position: absolute; background-color: #FFFFFF; left: 10px;">
+    {% csrf_token %}
+    <div id="layer2"
+         style="position: absolute; width: 162px; height: 49px; z-index: 2; left: 36px; top: 5px; right: 902px;">
+        <button class="button"><span>মুল পাতা</span>
+        </button>
+    </div>
+    <div id="layer1" style="position: absolute; width: 143px; height: 49px; z-index: 1; left: 934px; top: 5px">
+        <button class="button"><span>লগ আউট</span>
+        </button>
+    </div>
 
-		<div id="layer1" style="position: absolute; width: 90px; height: 51px; z-index: 1; left: 809px; top: 311px; right: 200px;">
-			<input name="btnPrint" type="button" value="প্রিন্ট" class="button1" style="width: 77px"/>
-		</div>
+    <div id="layer1"
+         style="position: absolute; width: 157px; height: 51px; z-index: 1; left: 502px; top: 5px; right: 441px;">
+        <input name="btnAdd" type="button" value="নতুন ডিটেইল" class="button1" style="width: 150px"/>
+    </div>
 
-		
-		<div id="layer1" style="position: absolute; width: 153px; height: 51px; z-index: 1; left: 334px; top: 5px">
-			<input name="btnAdd" onclick="myFunction()" type="button" value="নতুন মেমো" class="button1" style="width: 146px"/>
-		</div>
-		
-	<fieldset style="border: thin solid #000000; height: 246px; width: 275px; position: absolute; left:20px; top: 62px;">
-			<legend><strong>Head Info</strong></legend>
-			<label for="dtpSale" style="width: 80px">তারিখ</label><label for="dtpSale" style="width: 10px"><strong>:</strong></label><input type="Date" name="dtpSale" style= "width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"/>
-			<label for="txtMemo">মেমো নং</label><label for="txtMemo" style="width: 10px"><strong>:</strong></label><input type="text" name="txtMemo" style= "width: 100px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right"/>
-			<label for="slctParty" style="width:80px">পার্টি</label><label for="slctParty" style="width: 10px"><strong>:</strong></label><select name="slctParty" style="width: 180px; height: 35px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
-				<option>Md. Nazrul Islam</option>
-				<option>M/s Noor Bros.</option>
-			</select>
-			<p class="AlignToTextArea" style="margin-bottom: 0; margin-top: 0">
-			<label for="txtaddress" style="width: 80px">ঠিকানা</label><label for="txtaddress" style="width: 10px"><strong>:</strong></label><textarea rows="4" name="txtAddress" style= "width: 166px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; display: inline-block"> </textarea>
-			</p>
-			
-	
-	<fieldset/>
+    <div id="layer1"
+         style="position: absolute; width: 90px; height: 51px; z-index: 1; left: 675px; top: 4px; right: 335px;">
+        <input name="btnDone" type="button" value="সেভ" class="button1" style="width: 77px"/>
+    </div>
 
-	
-	<fieldset style="border: thin solid #000000; height: 246px; width: 279px; position: absolute; left:327px; top: 0px;">
-			<legend><strong>Detail</strong></legend> 
-			<label for="slctItem">পণ্য</label><label for="slctItem" style="width: 10px"><strong>:</strong></label><select name="slctItem" style="width: 180px; height: 35px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
-				<option>Asian Paint</option>
-				<option>Roxy Paint</option>
-			</select>
-			<label for="slctSize">সাইজ</label><label for="slctSize" style="width: 10px"><strong>:</strong></label><select name="slctSize" style="width: 180px; height: 35px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
-				<option>5 Ltr</option>
-				<option>1 Ltr</option>
-			</select>
-			<label for="txtUnit">পরিমান</label><label for="txtUnit" style="width: 10px"><strong>:</strong></label><input type="number" name="txtUnit" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
-			<label for="txtFree">ফ্রী</label><label for="txtFree" style="width: 10px"><strong>:</strong></label><input type="number" name="txtFree" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
-			<label for="txtRate">দর</label><label for="txtRate" style="width: 10px"><strong>:</strong></label><input type="number" name="txtRate" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
-			<label for="txtTotal">মোট</label><label for="txtTotal" style="width: 10px"><strong>:</strong></label><input type="number" name="txtTotal" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
-	</fieldset>
-	
-	<fieldset style="border: thin solid #000000; height: 206px; width: 279px; position: absolute; left:661px; top: 0px;">
-			<legend><strong>Aggregate</strong></legend> 
+    <div id="layer1"
+         style="position: absolute; width: 90px; height: 51px; z-index: 1; left: 900px; top: 311px; right: 109px;">
+        <input name="btnEdit" type="button" value="এডিট" class="button1" style="width: 77px"/>
+    </div>
 
-			<label for="txtTotal">মোট</label><label for="txtTotal" style="width: 10px"><strong>:</strong></label><input type="number" name="txtUnit" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
-			<label for="txtDiscount">ছাড়</label><label for="txtDiscount" style="width: 10px"><strong>:</strong></label><input type="number" name="txtFree" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
-			<label for="txtGTotal">সর্বমোট</label><label for="txtGTotal" style="width: 10px"><strong>:</strong></label><input type="number" name="txtRate" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
-	</fieldset>
-	
-			<table style="position: absolute; height: 20px;  left: 9px; width:900px; overflow: auto; top: 320px; table-layout: fixed;" class="Table">
-			  <tr>
-			    <th class="auto-style2">পণ্যের নাম</th>
-			    <th class="auto-style2">সাইজ</th>
-			    <th class="auto-style2">পরিমান</th>
-			    <th class="auto-style2">ফ্রী</th>
-			    <th class="auto-style2">দর</th>
-			    <th class="auto-style2">আইটেম টোটাল</th>
-			  </tr>
-			 </table>
-	
-		<div style="position: absolute;  left: 9px; width:917px; top: 350px; overflow:auto; height: 150px;">
-			<table style="; overflow: auto; table-layout: fixed;" class="Table">
-			  <tr>
-			    <td>Asian Paint</td>
-			    <td>5 Ltr</td>
-			    <td class="auto-style3">1</td>
-			    <td class="auto-style3">0</td>
-			    <td class="auto-style3">1650</td>
-			    <td class="auto-style3">1650</td>
-			  </tr>
-			  <tr>
-			    <td style="height: 27px">Asian Paint</td>
-			    <td style="height: 27px">1 Ltr</td>
-			    <td class="auto-style3" style="height: 27px">2</td>
-			    <td class="auto-style3" style="height: 27px">0</td>
-			    <td class="auto-style3" style="height: 27px">350</td>
-			    <td class="auto-style3" style="height: 27px">700</td>
-			  </tr>
-			  <tr>
-			    <td>Roxy Paint</td>
-			    <td>1 Ltr</td>
-			    <td class="auto-style3">6</td>
-			    <td class="auto-style3">1</td>
-			    <td class="auto-style3">350</td>
-			    <td class="auto-style3">2100</td>
-			  </tr>
-			  <tr>
-			    <td>Roxy Paint</td>
-			    <td>5 Ltr</td>
-			    <td class="auto-style3">1</td>
-			    <td class="auto-style3">0</td>
-			    <td class="auto-style3">1600</td>
-			    <td class="auto-style3">1600</td>
-			  </tr>
-			  <tr>
-			    <td>Glue</td>
-			    <td>1 Ltr</td>
-			    <td class="auto-style3">2</td>
-			    <td class="auto-style3">0</td>
-			    <td class="auto-style3">200</td>
-			    <td class="auto-style3">400</td>
-			  </tr>
-			  </table>
-		</div>
-		
-		<fieldset style="border: thin solid #000000; height: 57px; width: 383px; position: absolute; left:661px; top: 230px;">
-			<legend><strong>Select Memo to View, Print, Edit &amp; Delete</strong></legend>
-				<select name="slctMemo" style="width: 103px; height: 35px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
-				<option value="">মেমো নং</option>
-				<option>376</option>
-				<option>375</option>
-				<option>374</option>
-				</select>
-		</fieldset>
-		
-	</form>
+    <div id="layer1"
+         style="position: absolute; width: 90px; height: 51px; z-index: 1; left: 991px; top: 311px; right: 18px;">
+        <input name="btnDelete" type="button" value="ডিলিট" class="button1" style="width: 77px"/>
+    </div>
+
+    <div id="layer1"
+         style="position: absolute; width: 90px; height: 51px; z-index: 1; left: 809px; top: 311px; right: 200px;">
+        <input name="btnPrint" type="button" value="প্রিন্ট" class="button1" style="width: 77px"/>
+    </div>
+
+
+    <div id="layer1" style="position: absolute; width: 153px; height: 51px; z-index: 1; left: 334px; top: 5px">
+        <input name="btnAdd" onclick="myFunction()" type="button" value="নতুন মেমো" class="button1"
+               style="width: 146px"/>
+    </div>
+
+    <fieldset
+            style="border: thin solid #000000; height: 246px; width: 275px; position: absolute; left:20px; top: 62px;">
+        <legend><strong>Head Info</strong></legend>
+        <label for="dtpSale" style="width: 80px">তারিখ</label><label for="dtpSale" style="width: 10px"><strong>:</strong></label>
+        <input type="Date" id="date" name="date" style="width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"/>
+        <label for="txtMemo">মেমো নং</label><label for="txtMemo" style="width: 10px"><strong>:</strong></label>
+        <input type="text" id="memoNo" onchange="loadMemoObject(this.value)" name="memoNo" style="width: 100px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right"/>
+        <script>
+                function loadMemoObject(num)
+                {
+                    $.ajax({
+                    url: '/ajax/loadMemoObjectSalesReturn/',
+                    type: "POST",
+                    data: {
+
+                        'memoNo': num,
+
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+
+                        if(data.isFound)
+                        {
+                            $("#memoNo").val(data.saleMemoObjectID);
+                            $("#date").val(data.date);
+                            $("#customerName").val(data.customerName);
+                            $("#customerAddress").text(data.address);
+                            $('#saleItemTable tbody').html(data.dataForTable);
+
+
+                        }
+                        else
+                        {
+                            alert("Memo did not exist.");
+                        }
+                    }
+                  });
+                }
+
+
+        </script>
+        <label for="slctParty" style="width:80px">পার্টি</label><label for="slctParty" style="width: 10px"><strong>:</strong></label>
+        <input name="customerName" id="customerName" style="width: 140px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"></input>
+        <p class="AlignToTextArea" style="margin-bottom: 0; margin-top: 0"><label for="txtaddress" style="width: 80px">ঠিকানা</label><label for="txtaddress" style="width: 10px"><strong>:</strong></label>
+            <textarea  rows="4" id="customerAddress" name="customerAddress" style="width: 166px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; display: inline-block"> </textarea>
+        </p>
+
+
+        <fieldset/>
+
+
+        <fieldset style="border: thin solid #000000; height: 246px; width: 279px; position: absolute; left:327px; top: 0px;">
+            <legend><strong>Detail</strong></legend>
+            <label for="slctItem">পণ্য</label><label for="slctItem" style="width: 10px"><strong>:</strong></label>
+            <select name="slctItem" style="width: 180px; height: 35px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
+                <option>Asian Paint</option>
+                <option>Roxy Paint</option>
+            </select>
+            <label for="slctSize">সাইজ</label><label for="slctSize" style="width: 10px"><strong>:</strong></label>
+            <select name="slctSize" style="width: 180px; height: 35px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
+                <option>5 Ltr</option>
+                <option>1 Ltr</option>
+            </select>
+            <label for="txtUnit">পরিমান</label><label for="txtUnit" style="width: 10px"><strong>:</strong></label><input
+                type="number" name="txtUnit"
+                style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+            <label for="txtFree">ফ্রী</label><label for="txtFree" style="width: 10px"><strong>:</strong></label><input
+                type="number" name="txtFree"
+                style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+            <label for="txtRate">দর</label><label for="txtRate" style="width: 10px"><strong>:</strong></label><input
+                type="number" name="txtRate"
+                style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+            <label for="txtTotal">মোট</label><label for="txtTotal" style="width: 10px"><strong>:</strong></label><input
+                type="number" name="txtTotal"
+                style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+        </fieldset>
+
+        <fieldset
+                style="border: thin solid #000000; height: 206px; width: 279px; position: absolute; left:661px; top: 0px;">
+            <legend><strong>Aggregate</strong></legend>
+
+            <label for="txtTotal">মোট</label><label for="txtTotal" style="width: 10px"><strong>:</strong></label><input
+                type="number" name="txtUnit"
+                style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+            <label for="txtDiscount">ছাড়</label><label for="txtDiscount"
+                                                       style="width: 10px"><strong>:</strong></label><input
+                type="number" name="txtFree"
+                style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+            <label for="txtGTotal">সর্বমোট</label><label for="txtGTotal"
+                                                         style="width: 10px"><strong>:</strong></label><input
+                type="number" name="txtRate"
+                style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+        </fieldset>
+
+        <table style="position: absolute; height: 20px;  left: 9px; width:900px; overflow: auto; top: 320px; table-layout: fixed;"
+               class="Table">
+            <tr>
+                <th class="auto-style2">পণ্যের নাম</th>
+                <th class="auto-style2">সাইজ</th>
+                <th class="auto-style2">পরিমান</th>
+                <th class="auto-style2">ফ্রী</th>
+                <th class="auto-style2">দর</th>
+                <th class="auto-style2">আইটেম টোটাল</th>
+            </tr>
+        </table>
+
+        <div style="position: absolute;  left: 9px; width:917px; top: 350px; overflow:auto; height: 150px;">
+            <table id="saleItemTable" style="; overflow: auto; table-layout: fixed;" class="Table">
+                <tbody>
+
+                </tbody>
+
+            </table>
+        </div>
+
+        <fieldset
+                style="border: thin solid #000000; height: 57px; width: 383px; position: absolute; left:661px; top: 230px;">
+            <legend><strong>Select Memo to View, Print, Edit &amp; Delete</strong></legend>
+            <select name="slctMemo"
+                    style="width: 103px; height: 35px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
+                <option value="">মেমো নং</option>
+                <option>376</option>
+                <option>375</option>
+                <option>374</option>
+            </select>
+        </fieldset>
+
+</form>
 
 </body>
 

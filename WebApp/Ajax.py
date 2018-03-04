@@ -7,7 +7,6 @@ from django.views.decorators.csrf import csrf_exempt
 
 from WebApp.models import Item, Customer, Supplier, SaleMemo, SalesRepresentative, SaleItem, PurchaseMemo, PurchaseItem
 
-
 @csrf_exempt
 def getItem(request):
     itemId = request.POST.get('itemId','')
@@ -36,7 +35,6 @@ def getItem(request):
 
         }
         return JsonResponse(data)
-
 
 @csrf_exempt
 def getSC(request):
@@ -210,7 +208,6 @@ def loadMemoObject(request):
 
     return JsonResponse(data)
 
-
 @csrf_exempt
 def getCustomerAddressPurchase(request):
     customerID = request.POST.get('id', '')
@@ -228,7 +225,6 @@ def getCustomerAddressPurchase(request):
         }
 
     return JsonResponse(data);
-
 
 @csrf_exempt
 def saveMemoPurchase(request):
@@ -328,6 +324,42 @@ def loadMemoObjectPurchase(request):
             dataForTable += '<tr><td>' + str(i.item.itemName) + '</td>' + '<td>' + str(
                 i.item.itemSize) + '</td>' + '<td>' + str(i.quantity) + '</td>' + '<td>' + str(
                 i.free) + '</td>' + '<td>' + str(i.purchaseRate) + '</td>' + '<td>' + str(i.itemTotal()) + '</td>' + '</tr>'
+        date= saleMemoObject.date
+
+        data = {
+            'isFound': True,
+            'saleMemoObjectID': saleMemoObject.id,
+            'date': date,
+            'customer': saleMemoObject.party.name,
+            'address': saleMemoObject.party.address,
+            'sr': saleMemoObject.party.salesRepresentative.name,
+            'dataForTable': dataForTable,
+            'tempTotal': saleMemoObject.getTotal(),
+            'discount': saleMemoObject.discount,
+            'paid': saleMemoObject.paid,
+        }
+
+
+    return JsonResponse(data)
+
+@csrf_exempt
+def loadMemoObjectSalesReturn(request):
+    memoNo = request.POST.get('memoNo', '')
+    memoExist = SaleMemo.objects.filter(id=int(memoNo)).exists()
+
+    if memoNo is '' or not memoExist:
+        data = {
+            'isSuccessful': False,
+
+
+        }
+    else:
+        saleMemoObject = SaleMemo.objects.filter(id=int(memoNo)).get()
+        dataForTable=''
+        for i in saleMemoObject.saleItem.all():
+            dataForTable += '<tr><td>' + str(i.item.itemName) + '</td>' + '<td>' + str(
+                i.item.itemSize) + '</td>' + '<td>' + str(i.quantity) + '</td>' + '<td>' + str(
+                i.free) + '</td>' + '<td>' + str(i.saleRate) + '</td>' + '<td>' + str(i.itemTotal()) + '</td>' + '</tr>'
         date= saleMemoObject.date
 
         data = {
