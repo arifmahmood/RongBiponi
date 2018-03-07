@@ -235,6 +235,13 @@ tr:nth-child(even) {
                             $("#memoNo").val(data.saleMemoObjectID);
                             $('#saleItemTable tbody').html(data.dataForTable);
                             $('#tempTotal').val(data.tempTotal);
+                            $('#itemID').val(0);
+                            $('#itemSize').val(0);
+                            $('#itemUnit').val(0);
+                            $('#itemFree').val(0);
+                            $('#itemRate').val(0);
+
+                            maintainItemValue();
                             maintainValue();
                             hide();
 
@@ -434,6 +441,7 @@ tr:nth-child(even) {
             <label for="slctItem">পণ্য</label><label for="slctItem"
                                                      style="width: 10px"><strong>:</strong></label>
             <select id="itemID" name="itemID" required formnovalidate onchange="getItemDetails(this.value)" style="width: 180px; height: 35px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
+                <option value="0"></option>
             {% for item in ITEM.all %}
             <option value="{{item.id}}">{{item.itemName}}-{{item.itemSize}}</option>
             {% endfor %}
@@ -452,8 +460,8 @@ tr:nth-child(even) {
                     if(data.isFound)
                     {
 
-                     $("#itemSize").val(data.itemSize);
-                     $("#itemRate").val(data.saleRate)
+                        $("#itemSize").val(data.itemSize);
+                        $("#itemRate").val(data.saleRate)
                     }
                     else
                     {
@@ -470,11 +478,11 @@ tr:nth-child(even) {
 
 
             <label for="slctSize">সাইজ</label><label for="slctSize" style="width: 10px"><strong>:</strong></label>
-            <input id="itemSize" name="itemSize" required formnovalidate value="0" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"/>
+            <input id="itemSize" name="itemSize" required readonly value="0" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"/>
 
 
             <label for="txtUnit">পরিমান</label><label for="txtUnit" style="width: 10px"><strong>:</strong></label>
-            <input type="number" onchange="maintainItemValue()" id="itemUnit" required formnovalidate value="0" name="itemUnit" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+            <input type="number" onchange="maintainItemValue()" onClick="this.setSelectionRange(0, this.value.length)" id="itemUnit" required formnovalidate value="0" name="itemUnit" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
             <script>
                 function maintainItemValue()
 		        {
@@ -490,20 +498,20 @@ tr:nth-child(even) {
             </script>
 
             <label for="txtFree">ফ্রী</label><label for="txtFree" style="width: 10px"><strong>:</strong></label>
-            <input type="number" onchange="maintainItemValue()" id="itemFree" required formnovalidate value="0" name="itemFree" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+            <input type="number" onchange="maintainItemValue()" onClick="this.setSelectionRange(0, this.value.length)" id="itemFree" required formnovalidate value="0" name="itemFree" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
 
             <label for="txtRate">দর</label><label for="txtRate" style="width: 10px"><strong>:</strong></label>
-            <input type="number" onchange="maintainItemValue()" id="itemRate" required  value="0" name="itemRate" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+            <input type="number" onchange="maintainItemValue()" onClick="this.setSelectionRange(0, this.value.length)" id="itemRate" required  value="0" name="itemRate" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
 
             <label for="txtTotal">মোট</label><label for="txtTotal" style="width: 10px"><strong>:</strong></label>
-            <input type="number" onchange="maintainItemValue()" id="itemTotal" required formnovalidate value="0" name="itemTotal" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+            <input type="number" onchange="maintainItemValue()" onClick="this.setSelectionRange(0, this.value.length)" id="itemTotal" required readonly value="0" name="itemTotal" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
 	</fieldset>
 	
 	<fieldset style="border: thin solid #000000; height: 206px; width: 279px; position: absolute; left:661px; top: 0px;">
 			<legend><strong>Aggregate</strong></legend>
 
             <label for="txtTotal">মোট</label><label for="txtTotal" style="width: 10px"><strong>:</strong></label>
-            <input onchange="maintainValue()" readonly type="number" id="tempTotal" name="tempTotal" value="0" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+            <input onchange="maintainValue()" readonly type="number" id="tempTotal"  name="tempTotal" value="0" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
             <script>
                 function maintainValue()
 		        {
@@ -519,13 +527,13 @@ tr:nth-child(even) {
             </script>
 
             <label for="txtDiscount">ছাড়</label><label for="txtDiscount" style="width: 10px"><strong>:</strong></label>
-            <input type="number" onchange="maintainValue()" id="discount" name="discount" value="0" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+            <input type="number" onchange="maintainValue()" onClick="this.setSelectionRange(0, this.value.length)" id="discount" name="discount" value="0" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
             <label for="txtGTotal">সর্বমোট</label><label for="txtGTotal" style="width: 10px"><strong>:</strong></label>
-            <input type="number"  onchange="maintainValue()" id="finalTotal" name="finalTotal" value="0" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+            <input type="number"  onchange="maintainValue()" onClick="this.setSelectionRange(0, this.value.length)" readonly id="finalTotal" name="finalTotal" value="0" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
             <label for="txtPaid">পরিশোধ</label><label for="txtPaid" style="width: 10px"><strong>:</strong></label>
-            <input type="number" onchange="maintainValue()" id="paid" name="paid" value="0" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+            <input type="number" onchange="maintainValue()" onClick="this.setSelectionRange(0, this.value.length)" id="paid" name="paid" value="0" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
             <label for="txtDue">বাকী</label><label for="txtDue" style="width: 10px"><strong>:</strong></label>
-            <input type="number" onchange="maintainValue()" id="due" name="due" value="0" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+            <input type="number" onchange="maintainValue()" onClick="this.setSelectionRange(0, this.value.length)" id="due" name="due" value="0" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
 	</fieldset>
 	
 			<table style="position: absolute; height: 20px;  left: 9px; width:900px; overflow: auto; top: 320px; table-layout: fixed;"
@@ -592,7 +600,8 @@ tr:nth-child(even) {
 		
 		
 		
-	</form>
+
+</form>
 
 </body>
 

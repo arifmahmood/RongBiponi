@@ -39,7 +39,7 @@ def salePageLoad(request):
             saleMemoObject = SaleMemo.objects.filter(id=int(memoNo)).get()
             c = {'OBJECT': saleMemoObject, }
             c.update(csrf(request))
-            return render_to_response('rptInvoice.html', c)
+            return render_to_response('rpt_invoice.html', c)
 
     print(request)
     c = {'CUSTOMER':Customer.objects.all(), "SR":SalesRepresentative.objects.all(), "ITEM":Item.objects.all()}
@@ -78,7 +78,7 @@ def purchasePageLoad(request):
             saleMemoObject = PurchaseMemo.objects.filter(id=int(memoNo)).get()
             c = {'OBJECT': saleMemoObject, }
             c.update(csrf(request))
-            return render_to_response('rptInvoicePurchase.html', c)
+            return render_to_response('rpt_invoice_purchase.html', c)
 
     print(request)
     c = {'CUSTOMER':Supplier.objects.all(), "SR":SalesRepresentative.objects.all(), "ITEM":Item.objects.all()}
