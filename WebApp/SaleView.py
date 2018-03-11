@@ -65,7 +65,7 @@ def purchasePageLoad(request):
 
     elif request.POST.get('printButton'):
         memoNo = request.POST.get('memoNo','')
-        memoExist = PurchaseMemo.objects.filter(id=int(memoNo)).exists()
+        memoExist = PurchaseMemo.objects.filter(givenMemoNo=memoNo).exists()
         print(memoNo)
 
         if memoNo is '' or not memoExist:
@@ -75,7 +75,7 @@ def purchasePageLoad(request):
             return render_to_response('purchase_add.html', c)
 
         else:
-            saleMemoObject = PurchaseMemo.objects.filter(id=int(memoNo)).get()
+            saleMemoObject = PurchaseMemo.objects.filter(givenMemoNo=memoNo).get()
             c = {'OBJECT': saleMemoObject, }
             c.update(csrf(request))
             return render_to_response('rpt_invoice_purchase.html', c)
@@ -109,6 +109,8 @@ def showSrPage(request):
             filteredSr = SalesRepresentative.objects.filter(Q(mobileNo__icontains=srMobileNo))
         elif srName is not '':
             filteredSr = SalesRepresentative.objects.filter(Q(name__icontains=srName))
+        else:
+            filteredSr = SalesRepresentative.objects.all()
 
         c = { 'FILTERED_SR': filteredSr}
         c.update(csrf(request))

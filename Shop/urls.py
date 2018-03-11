@@ -34,6 +34,9 @@ urlpatterns = [
     url(r'^ajax/saveMemoPurchase/$', Ajax.saveMemoPurchase, name='saveMemoPurchase'),
     url(r'^ajax/loadMemoObjectPurchase/$', Ajax.loadMemoObjectPurchase, name='loadMemoObjectPurchase'),
     url(r'^ajax/loadMemoObjectSalesReturn/$', Ajax.loadMemoObjectSalesReturn, name='loadMemoObject'),
+    url(r'^ajax/memoNoCheck/$', Ajax.memoNoCheck, name='memoNoCheck'),
+    url(r'^ajax/getCurrentItemSalesReturn/$', Ajax.getCurrentItemSalesReturn, name='getCurrentItemSalesReturn'),
+    url(r'^ajax/salesReturnAddNewDetails/$', Ajax.salesReturnAddNewDetails, name='salesReturnAddNewDetails'),
 
     # ------------default  and logout ------------
     url(r'^$', LoginManagementViews.showHomePage, name='login'),

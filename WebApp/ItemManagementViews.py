@@ -46,7 +46,7 @@ def showItemAddPage(request):
             searchItemId=-1
 
         if searchItemName =='' and searchItemSize == '':
-            filteredItems= Item.objects.filter(Q(id=int(searchItemId)))
+            filteredItems= Item.objects.all()
             c.update({'SEARCHED_ITEMS': filteredItems})
         elif searchItemName =='':
             filteredItems= Item.objects.filter(Q(id=int(searchItemId)) |  Q(itemSize__icontains=searchItemSize))
@@ -75,7 +75,7 @@ def showItemDeletePage(request):
             searchItemId=-1
 
         if searchItemName =='' and searchItemSize == '':
-            filteredItems= Item.objects.filter(Q(id=int(searchItemId)))
+            filteredItems= Item.objects.all()
             c.update({'SEARCHED_ITEMS': filteredItems})
         elif searchItemName =='':
             filteredItems= Item.objects.filter(Q(id=int(searchItemId)) |  Q(itemSize__icontains=searchItemSize))
@@ -109,7 +109,7 @@ def showItemEditPage(request):
             searchItemId=-1
 
         if searchItemName =='' and searchItemSize == '':
-            filteredItems= Item.objects.filter(Q(id=int(searchItemId)))
+            filteredItems= Item.objects.all()
             c.update({'SEARCHED_ITEMS': filteredItems})
         elif searchItemName =='':
             filteredItems= Item.objects.filter(Q(id=int(searchItemId)) |  Q(itemSize__icontains=searchItemSize))

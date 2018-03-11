@@ -73,6 +73,22 @@ class SaleMemo(models.Model):
         return sum(i.itemTotal() for i in self.saleItem.all())
 
 
+class ReturnSaleMemo(models.Model):
+
+    givenMemoNo=models.ForeignKey(SaleMemo)
+    date = models.DateField()
+    returnSaleItem = models.ManyToManyField(SaleItem)
+    discount = models.DecimalField(max_digits=10, decimal_places=2,default=0, blank=True, null=True)
+    paid = models.DecimalField(max_digits=10, decimal_places=2,default=0, blank=True, null=True)
+    due=models.DecimalField(max_digits=10, decimal_places=2,default=0, blank=True, null=True)
+    memoTotal= models.DecimalField(max_digits=10, decimal_places=2,default=0, blank=True, null=True)
+    actualTotal= models.DecimalField(max_digits=10, decimal_places=2,default=0, blank=True, null=True)
+    def getTotal(self):
+        # type: () -> object
+
+        return sum(i.itemTotal() for i in self.returnSaleItem.all())
+
+
 class PurchaseItem(models.Model):
     purchaseRate = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     total = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
@@ -85,7 +101,7 @@ class PurchaseItem(models.Model):
 
 
 class PurchaseMemo(models.Model):
-    givenMemoNo = models.IntegerField(default=0)
+    givenMemoNo = models.CharField(max_length=50)
     date = models.DateField()
     party = models.ForeignKey(Supplier)
     purchaseItem = models.ManyToManyField(PurchaseItem)

@@ -49,6 +49,9 @@ def showScAddPage(request):
         elif name is not '':
             filteredC = Customer.objects.filter(Q(name__icontains=name))
             filteredS = Supplier.objects.filter(Q(name__icontains=name))
+        else:
+            filteredC = Customer.objects.all()
+            filteredS = Supplier.objects.all()
 
         c = {'SR': SalesRepresentative.objects.all(), 'FILTERED_C': filteredC, 'FILTERED_S': filteredS}
         c.update(csrf(request))
@@ -85,6 +88,10 @@ def showScDeletePage(request):
         elif name is not '':
             filteredC = Customer.objects.filter(Q(name__icontains=name))
             filteredS = Supplier.objects.filter(Q(name__icontains=name))
+        else:
+            filteredC = Customer.objects.all()
+            filteredS = Supplier.objects.all()
+
 
         c = {'SR': SalesRepresentative.objects.all(), 'FILTERED_C': filteredC, 'FILTERED_S': filteredS}
         c.update(csrf(request))
@@ -147,6 +154,9 @@ def showScEditPage(request):
         elif name is not '':
             filteredC = Customer.objects.filter(Q(name__icontains=name))
             filteredS = Supplier.objects.filter(Q(name__icontains=name))
+        else:
+            filteredC = Customer.objects.all()
+            filteredS = Supplier.objects.all()
 
         c = {'SR': SalesRepresentative.objects.all(), 'FILTERED_C': filteredC, 'FILTERED_S': filteredS}
         c.update(csrf(request))

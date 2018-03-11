@@ -188,10 +188,113 @@ tr:nth-child(even) {
         </button>
     </div>
 
-    <div id="layer1"
+    <div id="newDetailsButtonDiv"
          style="position: absolute; width: 157px; height: 51px; z-index: 1; left: 502px; top: 5px; right: 441px;">
-        <input name="btnAdd" type="button" value="নতুন ডিটেইল" class="button1" style="width: 150px"/>
+        <input name="newDetailsButton" type="button" onclick="addNewDetails()" value="নতুন ডিটেইল" class="button1" style="width: 150px"/>
     </div>
+    <script>
+
+		function addNewDetails()
+		{
+
+                event.preventDefault();
+                var fail = false;
+                var fail_log = '';
+                $( '#mainForm' ).find( 'select, textarea, input' ).each(function(){
+                    if( ! $( this ).prop( 'required' )){}
+                    else {
+                        if ( ! $( this ).val() ) {
+                            fail = true;
+                            name = $( this ).attr( 'name' );
+                            fail_log += name + " is required \n";
+                        }
+                    }
+
+
+                });
+
+                if ( ! fail )
+                {
+                    $.ajax({
+                    url: '/ajax/salesReturnAddNewDetails/',
+                    type: "POST",
+                    data: {
+
+                        'memoNo': document.getElementById('memoNo').value ,
+                        'saleMemoNo': document.getElementById('saleMemoNo').value ,
+                        'date': document.getElementById('date').value,
+                        'customer': document.getElementById('selectCustomer').value,
+                        'itemID': document.getElementById('itemId').value,
+                        'itemUnit': document.getElementById('itemUnit').value,
+                        'itemFree': document.getElementById('itemFree').value,
+                        'itemRate': document.getElementById('itemRate').value
+
+
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+
+                        if(data.isFound)
+                        {
+                            $("#memoNo").val(data.saleMemoObjectID);
+                            $('#saleItemTable tbody').html(data.dataForTable);
+                            $('#tempTotal').val(data.tempTotal);
+                            $('#itemId').val(0);
+                            $('#itemSize').val(0);
+                            $('#itemUnit').val(0);
+                            $('#itemFree').val(0);
+                            $('#itemRate').val(0);
+
+                            maintainItemValue();
+                            maintainValue();
+                            hide();
+
+
+
+                        }
+                        else
+                        {
+                            alert("id does not exit.");
+                        }
+                    }
+                  });
+                }
+                else
+                {
+                    alert( fail_log );
+                }
+         }
+
+        function hide()
+        {
+            var x1 = document.getElementById("editButtonDiv");
+            x1.style.display = "none";
+            var x2 = document.getElementById("deleteButtonDiv");
+            x2.style.display = "none";
+            var x3 = document.getElementById("printButtonDiv");
+            x3.style.display = "none";
+            var x4 = document.getElementById("newMemoButtonDiv");
+            x4.style.display = "none";
+            var x5 = document.getElementById("slctMemoFieldSet");
+            x5.style.display = "none";
+        }
+        function unHide()
+        {
+            var x1 = document.getElementById("editButtonDiv");
+            x1.style.display = "block";
+            var x2 = document.getElementById("deleteButtonDiv");
+            x2.style.display = "block";
+            var x3 = document.getElementById("printButtonDiv");
+            x3.style.display = "block";
+            var x4 = document.getElementById("newMemoButtonDiv");
+            x4.style.display = "block";
+            var x5 = document.getElementById("slctMemoFieldSet");
+            x5.style.display = "block";
+        }
+
+
+
+        </script>
 
     <div id="layer1"
          style="position: absolute; width: 90px; height: 51px; z-index: 1; left: 675px; top: 4px; right: 335px;">
@@ -222,10 +325,12 @@ tr:nth-child(even) {
     <fieldset
             style="border: thin solid #000000; height: 246px; width: 275px; position: absolute; left:20px; top: 62px;">
         <legend><strong>Head Info</strong></legend>
+        <label for="dtpSale" style="width: 80px">মেমো নং</label><label for="dtpSale" style="width: 10px"><strong>:</strong></label>
+        <input type="text" id="memoNo" name="memoNo" style="width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"/>
         <label for="dtpSale" style="width: 80px">তারিখ</label><label for="dtpSale" style="width: 10px"><strong>:</strong></label>
         <input type="Date" id="date" name="date" style="width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"/>
         <label for="txtMemo">মেমো নং</label><label for="txtMemo" style="width: 10px"><strong>:</strong></label>
-        <input type="text" id="memoNo" onchange="loadMemoObject(this.value)" name="memoNo" style="width: 100px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right"/>
+        <input type="text" id="saleMemoNo" onchange="loadMemoObject(this.value)" name="saleMemoNo" style="width: 100px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right"/>
         <script>
                 function loadMemoObject(num)
                 {
@@ -242,17 +347,14 @@ tr:nth-child(even) {
 
                         if(data.isFound)
                         {
-                            $("#memoNo").val(data.saleMemoObjectID);
+                            $("#saleMemoNo").val(data.saleMemoObjectID);
                             $("#date").val(data.date);
-                            $("#customerName").val(data.customerName);
+                            $("#selectCustomer").val(data.customer);
                             $("#customerAddress").text(data.address);
-                            $('#saleItemTable tbody').html(data.dataForTable);
-
-
                         }
                         else
                         {
-                            alert("Memo did not exist.");
+                            alert("Memo does not exist.");
                         }
                     }
                   });
@@ -261,7 +363,7 @@ tr:nth-child(even) {
 
         </script>
         <label for="slctParty" style="width:80px">পার্টি</label><label for="slctParty" style="width: 10px"><strong>:</strong></label>
-        <input name="customerName" id="customerName" style="width: 140px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"></input>
+        <input name="selectCustomer" id="selectCustomer" style="width: 140px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"></input>
         <p class="AlignToTextArea" style="margin-bottom: 0; margin-top: 0"><label for="txtaddress" style="width: 80px">ঠিকানা</label><label for="txtaddress" style="width: 10px"><strong>:</strong></label>
             <textarea  rows="4" id="customerAddress" name="customerAddress" style="width: 166px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; display: inline-block"> </textarea>
         </p>
@@ -273,44 +375,96 @@ tr:nth-child(even) {
         <fieldset style="border: thin solid #000000; height: 246px; width: 279px; position: absolute; left:327px; top: 0px;">
             <legend><strong>Detail</strong></legend>
             <label for="slctItem">পণ্য</label><label for="slctItem" style="width: 10px"><strong>:</strong></label>
-            <select name="slctItem" style="width: 180px; height: 35px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
-                <option>Asian Paint</option>
-                <option>Roxy Paint</option>
+            <select id="itemId" onchange="getItemDetails(this.value)" id="itemId" name="selectItem" style="width: 180px; height: 35px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
+                <option value="0"></option>
+                {% for item in ITEM.all %}
+                <option value="{{item.id}}">{{item.itemName}}-{{item.itemSize}}</option>
+                {% endfor %}
             </select>
+            <script>
+		    function getItemDetails(num) {
+                $.ajax({
+                url: '/ajax/getCurrentItemSalesReturn/',
+                type: "POST",
+                data: {
+                  'itemId': num,
+                  'memoNo': document.getElementById("saleMemoNo").value
+                },
+                dataType: 'json',
+                success: function (data) {
+
+                    if(data.isFound)
+                    {
+
+                        $("#itemSize").val(data.itemSize);
+                        $("#itemRate").val(data.saleRate);
+                    }
+                    else
+                    {
+                        alert("You can not return this item.");
+                    }
+                }
+              });
+
+            }
+
+
+
+        </script>
+
+
             <label for="slctSize">সাইজ</label><label for="slctSize" style="width: 10px"><strong>:</strong></label>
-            <select name="slctSize" style="width: 180px; height: 35px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
-                <option>5 Ltr</option>
-                <option>1 Ltr</option>
-            </select>
-            <label for="txtUnit">পরিমান</label><label for="txtUnit" style="width: 10px"><strong>:</strong></label><input
-                type="number" name="txtUnit"
-                style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
-            <label for="txtFree">ফ্রী</label><label for="txtFree" style="width: 10px"><strong>:</strong></label><input
-                type="number" name="txtFree"
-                style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
-            <label for="txtRate">দর</label><label for="txtRate" style="width: 10px"><strong>:</strong></label><input
-                type="number" name="txtRate"
-                style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
-            <label for="txtTotal">মোট</label><label for="txtTotal" style="width: 10px"><strong>:</strong></label><input
-                type="number" name="txtTotal"
-                style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+            <input id="itemSize" name="itemSize"  required readonly value="0" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"/>
+
+
+            <label for="txtUnit">পরিমান</label><label for="txtUnit" style="width: 10px"><strong>:</strong></label>
+            <input type="number" onchange="maintainItemValue()" onClick="this.setSelectionRange(0, this.value.length)" id="itemUnit" required formnovalidate value="0" name="itemUnit" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+            <script>
+                function maintainItemValue()
+		        {
+
+		            itemUnit = $("#itemUnit").val()
+		            itemFree = $("#itemFree").val()
+		            itemRate = $("#itemRate").val()
+		            $("#itemTotal").val((parseFloat(itemUnit)-parseFloat(itemFree))*parseFloat(itemRate))
+
+		        }
+
+
+            </script>
+
+            <label for="txtFree">ফ্রী</label><label for="txtFree" style="width: 10px"><strong>:</strong></label>
+            <input type="number" onchange="maintainItemValue()" onClick="this.setSelectionRange(0, this.value.length)" id="itemFree" required formnovalidate value="0" name="itemFree" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+
+            <label for="txtRate">দর</label><label for="txtRate" style="width: 10px"><strong>:</strong></label>
+            <input type="number" onchange="maintainItemValue()" onClick="this.setSelectionRange(0, this.value.length)" id="itemRate" required  value="0" name="itemRate" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+
+            <label for="txtTotal">মোট</label><label for="txtTotal" style="width: 10px"><strong>:</strong></label>
+            <input type="number" onchange="maintainItemValue()" onClick="this.setSelectionRange(0, this.value.length)" id="itemTotal" required readonly value="0" name="itemTotal" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
         </fieldset>
 
         <fieldset
                 style="border: thin solid #000000; height: 206px; width: 279px; position: absolute; left:661px; top: 0px;">
             <legend><strong>Aggregate</strong></legend>
 
-            <label for="txtTotal">মোট</label><label for="txtTotal" style="width: 10px"><strong>:</strong></label><input
-                type="number" name="txtUnit"
-                style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
-            <label for="txtDiscount">ছাড়</label><label for="txtDiscount"
-                                                       style="width: 10px"><strong>:</strong></label><input
-                type="number" name="txtFree"
-                style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
-            <label for="txtGTotal">সর্বমোট</label><label for="txtGTotal"
-                                                         style="width: 10px"><strong>:</strong></label><input
-                type="number" name="txtRate"
-                style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+            <label for="txtTotal">মোট</label><label for="txtTotal" style="width: 10px"><strong>:</strong></label>
+            <input onchange="maintainValue()" readonly type="number" id="tempTotal" name="tempTotal" value="0" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+            <script>
+                function maintainValue()
+		        {
+
+		            tempTotal = $("#tempTotal").val()
+		            discount = $("#discount").val()
+		            $("#finalTotal").val(parseFloat(tempTotal)-parseFloat(discount))
+		        }
+
+
+            </script>
+
+            <label for="txtDiscount">ছাড়</label><label for="txtDiscount" style="width: 10px"><strong>:</strong></label>
+            <input type="number" onchange="maintainValue()" onClick="this.setSelectionRange(0, this.value.length)" id="discount" name="discount" value="0" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
+            <label for="txtGTotal">সর্বমোট</label><label for="txtGTotal" style="width: 10px"><strong>:</strong></label>
+            <input type="number"  onchange="maintainValue()" onClick="this.setSelectionRange(0, this.value.length)" readonly id="finalTotal" name="finalTotal" value="0" style="width: 170px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right; font-family: SutonnyMJ"/>
         </fieldset>
 
         <table style="position: absolute; height: 20px;  left: 9px; width:900px; overflow: auto; top: 320px; table-layout: fixed;"

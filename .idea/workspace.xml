@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/WebApp/Ajax.py" line="142" />
+    <bookmark url="file://$PROJECT_DIR$/WebApp/Ajax.py" line="144" />
+    <bookmark url="file://$PROJECT_DIR$/WebApp/models.py" line="103" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9e04137-99af-483a-87b8-7820c39d7199" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shop/urls.py" afterPath="$PROJECT_DIR$/Shop/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Templates/Login.html" afterPath="$PROJECT_DIR$/Templates/Login.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Templates/Purchase_Add.html" afterPath="$PROJECT_DIR$/Templates/Purchase_Add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Templates/Sale_Add.html" afterPath="$PROJECT_DIR$/Templates/Sale_Add.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Templates/Sales_Return.html" afterPath="$PROJECT_DIR$/Templates/Sales_Return.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Templates/rpt_invoice.html" afterPath="$PROJECT_DIR$/Templates/rpt_invoice.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Templates/rpt_invoice_purchase.html" afterPath="$PROJECT_DIR$/Templates/rpt_invoice_purchase.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebApp/Ajax.py" afterPath="$PROJECT_DIR$/WebApp/Ajax.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebApp/ItemManagementViews.py" afterPath="$PROJECT_DIR$/WebApp/ItemManagementViews.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebApp/ReturnManagementView.py" afterPath="$PROJECT_DIR$/WebApp/ReturnManagementView.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebApp/SaleView.py" afterPath="$PROJECT_DIR$/WebApp/SaleView.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebApp/SupplierAndCustomerManagementView.py" afterPath="$PROJECT_DIR$/WebApp/SupplierAndCustomerManagementView.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebApp/models.py" afterPath="$PROJECT_DIR$/WebApp/models.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,24 +31,113 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ReturnManagementView.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebApp/ReturnManagementView.py">
+      <file leaf-file-name="Ajax.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebApp/Ajax.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="7" column="32" lean-forward="false" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+            <state relative-caret-position="177">
+              <caret line="197" column="0" lean-forward="false" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
               <folding>
-                <element signature="e#0#47#0" expanded="true" />
+                <element signature="e#0#25#0" expanded="true" />
+                <element signature="e#401#1074#0" expanded="false" />
+                <element signature="e#547#860#0" expanded="false" />
+                <element signature="e#602#826#0" expanded="false" />
+                <element signature="e#879#1074#0" expanded="false" />
+                <element signature="e#886#1040#0" expanded="false" />
+                <element signature="e#1113#2312#0" expanded="false" />
+                <element signature="e#1217#1250#0" expanded="false" />
+                <element signature="e#1287#1766#0" expanded="false" />
+                <element signature="e#1378#1732#0" expanded="false" />
+                <element signature="e#1437#1685#0" expanded="false" />
+                <element signature="e#1803#2282#0" expanded="false" />
+                <element signature="e#1894#2248#0" expanded="false" />
+                <element signature="e#1953#2201#0" expanded="false" />
+                <element signature="e#2364#2768#0" expanded="false" />
+                <element signature="e#2485#2518#0" expanded="false" />
+                <element signature="e#2545#2736#0" expanded="false" />
+                <element signature="e#2606#2736#0" expanded="false" />
+                <element signature="e#2815#5110#0" expanded="false" />
+                <element signature="e#2903#3695#0" expanded="false" />
+                <element signature="e#3715#4631#0" expanded="false" />
+                <element signature="e#4918#5080#0" expanded="false" />
+                <element signature="e#7530#8301#0" expanded="false" />
+                <element signature="e#7687#7741#0" expanded="false" />
+                <element signature="e#7694#7741#0" expanded="false" />
+                <element signature="e#7760#8270#0" expanded="false" />
+                <element signature="e#8195#8270#0" expanded="false" />
+                <element signature="e#8349#9567#0" expanded="false" />
+                <element signature="e#8501#8556#0" expanded="false" />
+                <element signature="e#8508#8556#0" expanded="false" />
+                <element signature="e#8575#9535#0" expanded="false" />
+                <element signature="e#8722#9014#0" expanded="false" />
+                <element signature="e#9065#9535#0" expanded="false" />
+                <element signature="e#9627#10031#0" expanded="false" />
+                <element signature="e#9748#9781#0" expanded="false" />
+                <element signature="e#9808#9999#0" expanded="false" />
+                <element signature="e#9869#9999#0" expanded="false" />
+                <element signature="e#10081#10941#0" expanded="false" />
+                <element signature="e#10320#10373#0" expanded="false" />
+                <element signature="e#10327#10373#0" expanded="false" />
+                <element signature="e#10392#10910#0" expanded="false" />
+                <element signature="e#10835#10910#0" expanded="false" />
+                <element signature="e#10996#13533#0" expanded="false" />
+                <element signature="e#11165#12041#0" expanded="false" />
+                <element signature="e#12061#13025#0" expanded="false" />
+                <element signature="e#13324#13503#0" expanded="false" />
+                <element signature="e#13589#14822#0" expanded="false" />
+                <element signature="e#13733#13786#0" expanded="false" />
+                <element signature="e#13740#13786#0" expanded="false" />
+                <element signature="e#13805#14790#0" expanded="false" />
+                <element signature="e#13964#14260#0" expanded="false" />
+                <element signature="e#14311#14790#0" expanded="false" />
+                <element signature="e#14881#15870#0" expanded="false" />
+                <element signature="e#15033#15088#0" expanded="false" />
+                <element signature="e#15040#15088#0" expanded="false" />
+                <element signature="e#15107#15838#0" expanded="false" />
+                <element signature="e#15368#15838#0" expanded="false" />
+                <element signature="e#15916#16209#0" expanded="false" />
+                <element signature="e#16063#16110#0" expanded="false" />
+                <element signature="e#16070#16110#0" expanded="false" />
+                <element signature="e#16129#16177#0" expanded="false" />
+                <element signature="e#16136#16177#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ajax.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebApp/Ajax.py">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Shop/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="172" column="0" lean-forward="false" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+            <state relative-caret-position="578">
+              <caret line="38" column="59" lean-forward="false" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="59" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebApp/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="88" column="61" lean-forward="false" selection-start-line="88" selection-start-column="61" selection-end-line="88" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sales_return.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Templates/sales_return.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="953">
+              <caret line="377" column="29" lean-forward="true" selection-start-line="377" selection-start-column="29" selection-end-line="377" selection-end-column="29" />
+              <folding>
+                <element signature="n#style#0;n#label#2;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#3;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#1;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#2;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#script#0;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#select#0;n#fieldset#1;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#script#1;n#fieldset#1;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -46,116 +145,15 @@
       <file leaf-file-name="sale_add.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Templates/sale_add.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="246" column="28" lean-forward="true" selection-start-line="246" selection-start-column="28" selection-end-line="252" selection-end-column="48" />
+            <state relative-caret-position="1401">
+              <caret line="532" column="0" lean-forward="true" selection-start-line="532" selection-start-column="0" selection-end-line="532" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#script#0;n#fieldset#1;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#script#1;n#fieldset#1;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#input#4;n#fieldset#2;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#script#0;n#fieldset#3;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="purchase_add.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Templates/purchase_add.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-374">
-              <caret line="243" column="48" lean-forward="false" selection-start-line="243" selection-start-column="48" selection-end-line="243" selection-end-column="48" />
-              <folding>
-                <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#form#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#button#0;n#div#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#button#0;n#div#1;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#3;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#script#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#script#1;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#4;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#5;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#6;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#select#0;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#script#0;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#p#0;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#fieldset#1;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#label#1;n#fieldset#1;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#script#0;n#fieldset#1;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#script#1;n#fieldset#1;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#input#0;n#fieldset#2;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#script#0;n#fieldset#2;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#table#0;n#div#0;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#tbody#0;n#table#0;n#div#0;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#fieldset#3;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#script#0;n#fieldset#3;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SupplierAndCustomerManagementView.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebApp/SupplierAndCustomerManagementView.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1394">
-              <caret line="87" column="0" lean-forward="true" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginManagementViews.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebApp/LoginManagementViews.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ItemManagementViews.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebApp/ItemManagementViews.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="120" column="15" lean-forward="true" selection-start-line="120" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#27#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReportManagement.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebApp/ReportManagement.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="22" column="46" lean-forward="true" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SaleView.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/WebApp/SaleView.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="80" column="52" lean-forward="false" selection-start-line="80" selection-start-column="52" selection-end-line="80" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
-        <entry file="file://C:/python36/Lib/site-packages/django/core/handlers/base.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2805">
-              <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -176,6 +174,20 @@
       <find>maintainValue</find>
       <find>required</find>
       <find>hide</find>
+      <find>givenMemoNo=int(memoNo)</find>
+      <find>load</find>
+      <find>loadMemoObjectPurchase</find>
+      <find>getcurrentitem</find>
+      <find>pars</find>
+      <find>selectSR</find>
+      <find>date</find>
+      <find>selectCustomer</find>
+      <find>itemID</find>
+      <find>itemUnit</find>
+      <find>itemFree</find>
+      <find>memoNo</find>
+      <find>saleMemoNo</find>
+      <find>salesReturnAddNewDetails</find>
     </findStrings>
     <replaceStrings>
       <replace>required formnovalidate</replace>
@@ -196,7 +208,6 @@
         <option value="$PROJECT_DIR$/Templates/Item_Add.html" />
         <option value="$PROJECT_DIR$/Templates/Item_Delete.html" />
         <option value="$PROJECT_DIR$/Templates/Item_Edit.html" />
-        <option value="$PROJECT_DIR$/WebApp/ItemManagementViews.py" />
         <option value="$PROJECT_DIR$/Templates/SC.html" />
         <option value="$PROJECT_DIR$/Templates/SC_Add.html" />
         <option value="$PROJECT_DIR$/Templates/SC_Delete.html" />
@@ -205,28 +216,33 @@
         <option value="$PROJECT_DIR$/Templates/Sale_Add.html" />
         <option value="$PROJECT_DIR$/Templates/rptInvoicePurchase.html" />
         <option value="$PROJECT_DIR$/Templates/Purchase_Add.html" />
-        <option value="$PROJECT_DIR$/WebApp/SupplierAndCustomerManagementView.py" />
         <option value="$PROJECT_DIR$/Templates/SR_Add.html" />
         <option value="$PROJECT_DIR$/Templates/SC_Edit.html" />
-        <option value="$PROJECT_DIR$/WebApp/models.py" />
         <option value="$PROJECT_DIR$/Templates/rptPurchase.html" />
         <option value="$PROJECT_DIR$/Templates/rptSale.html" />
         <option value="$PROJECT_DIR$/Templates/Home.html" />
-        <option value="$PROJECT_DIR$/WebApp/Ajax.py" />
-        <option value="$PROJECT_DIR$/Shop/urls.py" />
         <option value="$PROJECT_DIR$/Templates/Sales_Return.html" />
         <option value="$PROJECT_DIR$/WebApp/ReportManagement.py" />
-        <option value="$PROJECT_DIR$/WebApp/ReturnManagementView.py" />
         <option value="$PROJECT_DIR$/Templates/sale_add.html" />
-        <option value="$PROJECT_DIR$/Templates/purchase_add.html" />
+        <option value="$PROJECT_DIR$/WebApp/ItemManagementViews.py" />
+        <option value="$PROJECT_DIR$/WebApp/SupplierAndCustomerManagementView.py" />
+        <option value="$PROJECT_DIR$/Templates/login.html" />
         <option value="$PROJECT_DIR$/WebApp/SaleView.py" />
+        <option value="$PROJECT_DIR$/Templates/rpt_invoice.html" />
+        <option value="$PROJECT_DIR$/Templates/rpt_invoice_purchase.html" />
+        <option value="$PROJECT_DIR$/WebApp/ReturnManagementView.py" />
+        <option value="$PROJECT_DIR$/Templates/purchase_add.html" />
+        <option value="$PROJECT_DIR$/Shop/urls.py" />
+        <option value="$PROJECT_DIR$/Templates/sales_return.html" />
+        <option value="$PROJECT_DIR$/WebApp/models.py" />
+        <option value="$PROJECT_DIR$/WebApp/Ajax.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1370" />
+    <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -338,7 +354,7 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/manage.py" />
     <property name="settings.editor.selected.configurable" value="configurable.group.language" />
-    <property name="SearchEverywhereHistoryKey" value="sale&#9;FILE&#9;file://E:/Zim/project/Shop/WebApp/SaleView.py&#10;Purcha&#9;FILE&#9;file://E:/Zim/project/Shop/Templates/purchase_add.html&#10;url&#9;FILE&#9;file://E:/Zim/project/Shop/Shop/urls.py&#10;ur&#9;FILE&#9;file://E:/Zim/project/Shop/Shop/urls.py" />
+    <property name="SearchEverywhereHistoryKey" value="url&#9;FILE&#9;file://E:/Zim/project/Shop/Shop/urls.py&#10;Re&#9;FILE&#9;file://E:/Zim/project/Shop/WebApp/ReturnManagementView.py&#10;aja&#9;FILE&#9;file://E:/Zim/project/Shop/WebApp/Ajax.py&#10;Model&#9;FILE&#9;file://E:/Zim/project/Shop/WebApp/models.py&#10;rpt_invoice_purchase&#9;null&#9;null&#10;sale&#9;FILE&#9;file://E:/Zim/project/Shop/WebApp/SaleView.py&#10;Pur&#9;FILE&#9;file://E:/Zim/project/Shop/Templates/purchase_add.html&#10;purcha&#9;FILE&#9;file://E:/Zim/project/Shop/Templates/purchase_add.html&#10;lo&#9;FILE&#9;file://E:/Zim/project/Shop/Templates/login.html&#10;Hom&#9;FILE&#9;file://E:/Zim/project/Shop/Templates/home.html&#10;Purcha&#9;FILE&#9;file://E:/Zim/project/Shop/Templates/purchase_add.html&#10;ur&#9;FILE&#9;file://E:/Zim/project/Shop/Shop/urls.py" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -467,18 +483,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1370" height="744" extended-state="1" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12703101" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12298682" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27287066" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3344" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18611987" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26025236" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41798106" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27287066" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -525,18 +541,28 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/WebApp/SupplierAndCustomerManagementView.py</url>
-          <line>113</line>
+          <line>120</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/WebApp/Ajax.py</url>
-          <line>172</line>
-          <option name="timeStamp" value="12" />
+          <line>338</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/WebApp/SaleView.py</url>
-          <line>41</line>
-          <option name="timeStamp" value="14" />
+          <url>file://$PROJECT_DIR$/WebApp/Ajax.py</url>
+          <line>236</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/WebApp/Ajax.py</url>
+          <line>289</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/WebApp/Ajax.py</url>
+          <line>197</line>
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -549,55 +575,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="20" />
+      <option name="time" value="40" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Templates/purchase.html" />
-    <entry file="file://$PROJECT_DIR$/Templates/item.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="144" column="4" lean-forward="false" selection-start-line="144" selection-start-column="4" selection-end-line="144" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Templates/purchase_edit_delete.html" />
-    <entry file="file://$PROJECT_DIR$/Shop/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="34" column="50" lean-forward="false" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/ItemManagementViews.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" column="29" lean-forward="false" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Templates/item.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="147" column="4" lean-forward="false" selection-start-line="147" selection-start-column="4" selection-end-line="147" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Templates/Item_Add - Copy.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="170" column="14" lean-forward="false" selection-start-line="170" selection-start-column="14" selection-end-line="170" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/python36/Lib/site-packages/django/contrib/auth/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
@@ -609,13 +591,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4777">
-          <caret line="281" column="16" lean-forward="false" selection-start-line="281" selection-start-column="16" selection-end-line="281" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -651,27 +626,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
           <caret line="379" column="0" lean-forward="false" selection-start-line="379" selection-start-column="0" selection-end-line="379" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/python36/Lib/site-packages/django/utils/deprecation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/python36/Lib/site-packages/django/core/handlers/exception.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/python36/Lib/site-packages/django/views/decorators/csrf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -768,23 +722,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="94" column="102" lean-forward="false" selection-start-line="94" selection-start-column="102" selection-end-line="94" selection-end-column="102" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Templates/rptSale.html" />
     <entry file="file://$PROJECT_DIR$/Templates/rptPurchase.html" />
-    <entry file="file://$PROJECT_DIR$/Templates/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="147" column="42" lean-forward="false" selection-start-line="147" selection-start-column="42" selection-end-line="147" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Templates/sale.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -792,43 +731,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Templates/sales_return.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="246" column="68" lean-forward="false" selection-start-line="246" selection-start-column="68" selection-end-line="246" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Shop/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="76" lean-forward="false" selection-start-line="35" selection-start-column="76" selection-end-line="35" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebApp/ReportManagement.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="22" column="46" lean-forward="true" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/ReturnManagementView.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="32" lean-forward="false" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/SupplierAndCustomerManagementView.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="87" column="0" lean-forward="true" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -836,44 +742,108 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/SupplierAndCustomerManagementView.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="53" column="46" lean-forward="false" selection-start-line="53" selection-start-column="46" selection-end-line="53" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/python36/Lib/site-packages/django/core/handlers/base.py">
+    <entry file="file://$PROJECT_DIR$/Templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2805">
-          <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="408">
+          <caret line="147" column="42" lean-forward="false" selection-start-line="147" selection-start-column="42" selection-end-line="147" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/Ajax.py">
+    <entry file="file://$PROJECT_DIR$/Templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="172" column="0" lean-forward="false" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="317">
+          <caret line="282" column="64" lean-forward="false" selection-start-line="282" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Templates/sale_add.html">
+    <entry file="file://C:/python36/Lib/threading.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="246" column="28" lean-forward="true" selection-start-line="246" selection-start-column="28" selection-end-line="252" selection-end-column="48" />
+        <state relative-caret-position="162">
+          <caret line="863" column="0" lean-forward="false" selection-start-line="863" selection-start-column="0" selection-end-line="863" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/python36/Lib/socketserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="642" column="0" lean-forward="false" selection-start-line="642" selection-start-column="0" selection-end-line="642" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/python36/Lib/site-packages/django/core/servers/basehttp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="154" column="0" lean-forward="false" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/python36/Lib/wsgiref/handlers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/python36/Lib/site-packages/django/contrib/staticfiles/handlers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/ItemManagementViews.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Templates/rpt_invoice.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="247" column="43" lean-forward="false" selection-start-line="247" selection-start-column="43" selection-end-line="247" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Templates/rpt_invoice_purchase.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="232" column="56" lean-forward="false" selection-start-line="232" selection-start-column="56" selection-end-line="232" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/SaleView.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="63" column="64" lean-forward="true" selection-start-line="63" selection-start-column="64" selection-end-line="63" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/ReturnManagementView.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#script#0;n#fieldset#1;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#script#1;n#fieldset#1;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#4;n#fieldset#2;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#script#0;n#fieldset#3;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#0#47#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Templates/purchase_add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-374">
-          <caret line="243" column="48" lean-forward="false" selection-start-line="243" selection-start-column="48" selection-end-line="243" selection-end-column="48" />
+        <state relative-caret-position="4556">
+          <caret line="467" column="55" lean-forward="false" selection-start-line="467" selection-start-column="55" selection-end-line="467" selection-end-column="55" />
           <folding>
             <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
@@ -885,13 +855,11 @@
             <element signature="n#button#0;n#div#1;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#script#1;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#4;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#6;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#select#0;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#script#0;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#p#0;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#fieldset#1;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#label#1;n#fieldset#1;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -901,27 +869,164 @@
             <element signature="n#script#0;n#fieldset#2;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#table#0;n#div#0;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#tbody#0;n#table#0;n#div#0;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#fieldset#3;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#script#0;n#fieldset#3;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/ItemManagementViews.py">
+    <entry file="file://$PROJECT_DIR$/Shop/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="120" column="15" lean-forward="true" selection-start-line="120" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/SaleView.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="80" column="52" lean-forward="false" selection-start-line="80" selection-start-column="52" selection-end-line="80" selection-end-column="52" />
+        <state relative-caret-position="578">
+          <caret line="38" column="59" lean-forward="false" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="59" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Templates/sale_add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1401">
+          <caret line="532" column="0" lean-forward="true" selection-start-line="532" selection-start-column="0" selection-end-line="532" selection-end-column="0" />
+          <folding>
+            <element signature="n#script#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#script#1;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#select#0;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#script#0;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#script#1;n#fieldset#1;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/python36/Lib/site-packages/django/core/handlers/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="126" column="0" lean-forward="false" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="88" column="61" lean-forward="false" selection-start-line="88" selection-start-column="61" selection-end-line="88" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/python36/Lib/site-packages/django/views/decorators/csrf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/python36/Lib/site-packages/django/core/handlers/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="218" column="0" lean-forward="false" selection-start-line="218" selection-start-column="0" selection-end-line="218" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/python36/Lib/site-packages/django/utils/deprecation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/python36/Lib/site-packages/django/core/handlers/exception.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/Ajax.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="197" column="0" lean-forward="false" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#401#1074#0" expanded="false" />
+            <element signature="e#547#860#0" expanded="false" />
+            <element signature="e#602#826#0" expanded="false" />
+            <element signature="e#879#1074#0" expanded="false" />
+            <element signature="e#886#1040#0" expanded="false" />
+            <element signature="e#1113#2312#0" expanded="false" />
+            <element signature="e#1217#1250#0" expanded="false" />
+            <element signature="e#1287#1766#0" expanded="false" />
+            <element signature="e#1378#1732#0" expanded="false" />
+            <element signature="e#1437#1685#0" expanded="false" />
+            <element signature="e#1803#2282#0" expanded="false" />
+            <element signature="e#1894#2248#0" expanded="false" />
+            <element signature="e#1953#2201#0" expanded="false" />
+            <element signature="e#2364#2768#0" expanded="false" />
+            <element signature="e#2485#2518#0" expanded="false" />
+            <element signature="e#2545#2736#0" expanded="false" />
+            <element signature="e#2606#2736#0" expanded="false" />
+            <element signature="e#2815#5110#0" expanded="false" />
+            <element signature="e#2903#3695#0" expanded="false" />
+            <element signature="e#3715#4631#0" expanded="false" />
+            <element signature="e#4918#5080#0" expanded="false" />
+            <element signature="e#7530#8301#0" expanded="false" />
+            <element signature="e#7687#7741#0" expanded="false" />
+            <element signature="e#7694#7741#0" expanded="false" />
+            <element signature="e#7760#8270#0" expanded="false" />
+            <element signature="e#8195#8270#0" expanded="false" />
+            <element signature="e#8349#9567#0" expanded="false" />
+            <element signature="e#8501#8556#0" expanded="false" />
+            <element signature="e#8508#8556#0" expanded="false" />
+            <element signature="e#8575#9535#0" expanded="false" />
+            <element signature="e#8722#9014#0" expanded="false" />
+            <element signature="e#9065#9535#0" expanded="false" />
+            <element signature="e#9627#10031#0" expanded="false" />
+            <element signature="e#9748#9781#0" expanded="false" />
+            <element signature="e#9808#9999#0" expanded="false" />
+            <element signature="e#9869#9999#0" expanded="false" />
+            <element signature="e#10081#10941#0" expanded="false" />
+            <element signature="e#10320#10373#0" expanded="false" />
+            <element signature="e#10327#10373#0" expanded="false" />
+            <element signature="e#10392#10910#0" expanded="false" />
+            <element signature="e#10835#10910#0" expanded="false" />
+            <element signature="e#10996#13533#0" expanded="false" />
+            <element signature="e#11165#12041#0" expanded="false" />
+            <element signature="e#12061#13025#0" expanded="false" />
+            <element signature="e#13324#13503#0" expanded="false" />
+            <element signature="e#13589#14822#0" expanded="false" />
+            <element signature="e#13733#13786#0" expanded="false" />
+            <element signature="e#13740#13786#0" expanded="false" />
+            <element signature="e#13805#14790#0" expanded="false" />
+            <element signature="e#13964#14260#0" expanded="false" />
+            <element signature="e#14311#14790#0" expanded="false" />
+            <element signature="e#14881#15870#0" expanded="false" />
+            <element signature="e#15033#15088#0" expanded="false" />
+            <element signature="e#15040#15088#0" expanded="false" />
+            <element signature="e#15107#15838#0" expanded="false" />
+            <element signature="e#15368#15838#0" expanded="false" />
+            <element signature="e#15916#16209#0" expanded="false" />
+            <element signature="e#16063#16110#0" expanded="false" />
+            <element signature="e#16070#16110#0" expanded="false" />
+            <element signature="e#16129#16177#0" expanded="false" />
+            <element signature="e#16136#16177#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Templates/sales_return.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="953">
+          <caret line="377" column="29" lean-forward="true" selection-start-line="377" selection-start-column="29" selection-end-line="377" selection-end-column="29" />
+          <folding>
+            <element signature="n#style#0;n#label#2;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#3;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#2;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#script#0;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#select#0;n#fieldset#1;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#script#1;n#fieldset#1;n#fieldset#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

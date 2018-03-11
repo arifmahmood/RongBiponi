@@ -206,6 +206,48 @@ tr:nth-child(even) {
 			    <td class="auto-style3" >{{i.total}}</td>
 			  </tr>
 				{% endfor %}
+				<tr>
+			    <td class="auto-style3"></td>
+			    <td class="auto-style3"></td>
+			    <td class="auto-style3"></td>
+			    <td class="auto-style3"></td>
+			    <td class="auto-style3">Total</td>
+			    <td class="auto-style3" >{{OBJECT.memoTotal}}</td>
+			  </tr>
+
+				<tr>
+			    <td class="auto-style3"></td>
+			    <td class="auto-style3"></td>
+			    <td class="auto-style3"></td>
+			    <td class="auto-style3"></td>
+			    <td class="auto-style3">Less</td>
+			    <td class="auto-style3" >{{OBJECT.discount}}</td>
+			  </tr>
+
+				<tr>
+			    <td class="auto-style3"></td>
+			    <td class="auto-style3"></td>
+			    <td class="auto-style3"></td>
+			    <td class="auto-style3"></td>
+			    <td class="auto-style3">Grand Total</td>
+			    <td class="auto-style3" >{{OBJECT.actualTotal}}</td>
+			  </tr>
+				<tr>
+			    <td class="auto-style3"></td>
+			    <td class="auto-style3"></td>
+			    <td class="auto-style3"></td>
+			    <td class="auto-style3"></td>
+			    <td class="auto-style3">Paid</td>
+			    <td class="auto-style3" >{{OBJECT.paid}}</td>
+			  </tr>
+				<tr>
+			    <td class="auto-style3"></td>
+			    <td class="auto-style3"></td>
+			    <td class="auto-style3"></td>
+			    <td class="auto-style3"></td>
+			    <td class="auto-style3">Due</td>
+			    <td class="auto-style3" >{{OBJECT.due}}</td>
+			  </tr>
 			  </table>
 		</div>
 		

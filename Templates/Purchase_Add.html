@@ -378,13 +378,38 @@ tr:nth-child(even) {
 	<fieldset style="border: thin solid #000000; height: 246px; width: 275px; position: absolute; left:20px; top: 62px;">
 			<legend><strong>Head Info</strong></legend>
         <label for="txtMemo">মেমো নং</label><label for="txtMemo" style="width: 10px"><strong>:</strong></label>
-        <input type="text" id="memoNo" readonly name="memoNo" style="width: 100px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right"/>
+        <input type="text" id="memoNo" required onchange="memoNoCheck(this.value)" name="memoNo" style="width: 100px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right"/>
+        <script>
+                function memoNoCheck(value)
+		        {
+
+		            $.ajax({
+                    url: '/ajax/memoNoCheck/',
+                    type: "POST",
+                    data: {
+                        'memoNo': value ,
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+
+                        if(data.isFound)
+                        {
+                            alert("Memo No already exist, please enter different memo number.");
+                            $("#memoNo").val("");
+
+                        }
+                    }
+                  });
+		        }
+
+
+            </script>
 
         <label for="dtpSale" style="width: 80px">তারিখ</label><label for="dtpSale" style="width: 10px"><strong>:</strong></label>
-        <input type="Date" id="date" autocomplete required formnovalidate name="date" style="width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"/>
+        <input type="Date" id="date"  required  name="date" style="width: 140px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"/>
 
         <label for="slctParty" style="width:80px">পার্টি</label><label for="slctParty" style="width: 10px"><strong>:</strong></label>
-        <select required formnovalidate onchange="getAddress(this.value)" id="selectCustomer" name="selectCustomer" style="width: 180px; height: 35px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
+        <select required  onchange="getAddress(this.value)" id="selectCustomer" name="selectCustomer" style="width: 180px; height: 35px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
             {% if SELECTED_CUSTOMER %}
             <option value="{{SELECTED_SR.id}}">{{SELECTED_SR.name}}</option>
             {% else %}
@@ -429,7 +454,7 @@ tr:nth-child(even) {
             <textarea rows="4" required formnovalidate id="customerAddress" name="customerAddress" style="width: 166px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; display: inline-block"> </textarea>
         </p>
         <label for="slctSR">এসআর</label><label for="slctSR" style="width: 10px"><strong>:</strong></label>
-        <input required formnovalidate id="selectSR" name="selectSR" style="width: 166px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right"/>
+        <input required  id="selectSR" name="selectSR" style="width: 166px; height: 20px; border-radius: 3px; background:#E8E8E1; padding: 5px; margin-bottom: 5px; text-align: right"/>
 
 			
 	
@@ -440,7 +465,7 @@ tr:nth-child(even) {
 			<legend><strong>Detail</strong></legend>
             <label for="slctItem">পণ্য</label><label for="slctItem"
                                                      style="width: 10px"><strong>:</strong></label>
-            <select id="itemID" name="itemID" required formnovalidate onchange="getItemDetails(this.value)" style="width: 180px; height: 35px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
+            <select id="itemID" name="itemID" required  onchange="getItemDetails(this.value)" style="width: 180px; height: 35px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
                 <option value="0"></option>
             {% for item in ITEM.all %}
             <option value="{{item.id}}">{{item.itemName}}-{{item.itemSize}}</option>
