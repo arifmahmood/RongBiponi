@@ -298,28 +298,85 @@ tr:nth-child(even) {
 
     <div id="layer1"
          style="position: absolute; width: 90px; height: 51px; z-index: 1; left: 675px; top: 4px; right: 335px;">
-        <input name="btnDone" type="button" value="সেভ" class="button1" style="width: 77px"/>
+        <input name="btnDone" type="button" onclick="saveMemo()" value="সেভ" class="button1" style="width: 77px"/>
     </div>
+    <script>
+		function saveMemo()
+		{
 
-    <div id="layer1"
+                event.preventDefault();
+                var fail = false;
+                var fail_log = '';
+                $( '#mainForm' ).find( 'select, textarea, input' ).each(function(){
+                    if( ! $( this ).prop( 'required' )){}
+                    else {
+                        if ( ! $( this ).val() ) {
+                            fail = true;
+                            name = $( this ).attr( 'name' );
+                            fail_log += name + " is required \n";
+                        }
+                    }
+
+
+                });
+
+                if ( ! fail )
+                {
+                    $.ajax({
+                    url: '/ajax/returnSaveMemo/',
+                    type: "POST",
+                    data: {
+
+                        'memoNo': document.getElementById('memoNo').value ,
+                        'discount': document.getElementById('discount').value ,
+
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+
+                        if(data.isSuccessful)
+                        {
+                            alert("Memo saved successfully");
+                            unHide();
+
+                            $("#memoNoForPrint").val(data.memoNo);
+                        }
+                        else
+                        {
+                            alert("Memo did not saved successfully");
+                        }
+                    }
+                  });
+                }
+                else
+                {
+                    alert( fail_log );
+                }
+         }
+
+
+
+        </script>
+
+    <div id="editButtonDiv"
          style="position: absolute; width: 90px; height: 51px; z-index: 1; left: 900px; top: 311px; right: 109px;">
-        <input name="btnEdit" type="button" value="এডিট" class="button1" style="width: 77px"/>
+        <input name="editButton" type="button" value="এডিট" class="button1" style="width: 77px"/>
     </div>
 
-    <div id="layer1"
+    <div id="deleteButtonDiv"
          style="position: absolute; width: 90px; height: 51px; z-index: 1; left: 991px; top: 311px; right: 18px;">
-        <input name="btnDelete" type="button" value="ডিলিট" class="button1" style="width: 77px"/>
+        <input name="deleteButton" type="submit" value="ডিলিট" class="button1" style="width: 77px"/>
     </div>
 
-    <div id="layer1"
+    <div id="printButtonDiv"
          style="position: absolute; width: 90px; height: 51px; z-index: 1; left: 809px; top: 311px; right: 200px;">
-        <input name="btnPrint" type="button" value="প্রিন্ট" class="button1" style="width: 77px"/>
+        <input name="printButton" type="submit" value="প্রিন্ট" class="button1" style="width: 77px"/>
     </div>
 
 
-    <div id="layer1" style="position: absolute; width: 153px; height: 51px; z-index: 1; left: 334px; top: 5px">
-        <input name="btnAdd" onclick="myFunction()" type="button" value="নতুন মেমো" class="button1"
-               style="width: 146px"/>
+    <div id="newMemoButtonDiv" style="position: absolute; width: 153px; height: 51px; z-index: 1; left: 334px; top: 5px">
+        <input name="newMemoButton" type="button" onclick="location.href ='/salesreturn/'" value="নতুন মেমো" class="button1" style="width: 146px"/>
+
     </div>
 
     <fieldset
@@ -488,16 +545,47 @@ tr:nth-child(even) {
             </table>
         </div>
 
-        <fieldset
+        <fieldset id="slctMemoFieldSet"
                 style="border: thin solid #000000; height: 57px; width: 383px; position: absolute; left:661px; top: 230px;">
             <legend><strong>Select Memo to View, Print, Edit &amp; Delete</strong></legend>
-            <select name="slctMemo"
-                    style="width: 103px; height: 35px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px">
-                <option value="">মেমো নং</option>
-                <option>376</option>
-                <option>375</option>
-                <option>374</option>
-            </select>
+            <input id="memoNoForPrint" onchange="returnLoadMemoObject(this.value)" name="memoNoForPrint" style="width: 90px; height: 20px; border-radius: 2px; background:#E8E8E1; padding: 5px; margin-bottom: 5px"/>
+            <script>
+                function returnLoadMemoObject(num)
+                {
+                    $.ajax({
+                    url: '/ajax/returnLoadMemoObjectreturnLoadMemoObject/',
+                    type: "POST",
+                    data: {
+
+                        'memoNo': document.getElementById('memoNoForPrint').value ,
+
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+
+                        if(data.isFound)
+                        {
+                            $("#memoNo").val(data.saleMemoObjectID);
+                            $("#saleMemoNo").val(data.givenMemoNo);
+                            $("#date").val(data.date);
+                            $("#customerAddress").text(data.address);
+                            $('#saleItemTable tbody').html(data.dataForTable);
+                            $('#tempTotal').val(data.tempTotal);
+                            $('#discount').val(data.discount);
+                            $('#paid').val(data.paid);
+                            maintainValue();
+
+                        }
+                        else
+                        {
+                            alert("Memo did not exist.");
+                        }
+                    }
+                  });
+                }
+
+            </script>
+
         </fieldset>
 
 </form>

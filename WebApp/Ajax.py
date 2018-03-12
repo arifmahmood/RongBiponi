@@ -488,3 +488,62 @@ def getCurrentItemSalesReturn(request):
         'saleRate': ''
     }
     return JsonResponse(data)
+
+
+@csrf_exempt
+def returnSaveMemo(request):
+    memoNo = request.POST.get('memoNo', '')
+    discount = request.POST.get('discount', '')
+    if memoNo is '':
+        data = {
+            'isSuccessful': False,
+
+        }
+    else:
+        saleMemoObject = ReturnSaleMemo.objects.filter(id=int(memoNo)).get()
+        saleMemoObject.discount = float(discount)
+        saleMemoObject.memoTotal = saleMemoObject.getTotal()
+        saleMemoObject.actualTotal = float(saleMemoObject.getTotal()) - float(discount)
+        saleMemoObject.save()
+        data = {
+            'isSuccessful': True,
+            'memoNo': memoNo,
+        }
+
+    return JsonResponse(data)
+
+@csrf_exempt
+def forPrintLoadMemoObject(request):
+    memoNo = request.POST.get('memoNo', '')
+    memoExist = SaleMemo.objects.filter(id=int(memoNo)).exists()
+
+    if memoNo is '' or not memoExist:
+        data = {
+            'isSuccessful': False,
+
+
+        }
+    else:
+        saleMemoObject = ReturnSaleMemo.objects.filter(id=int(memoNo)).get()
+        dataForTable=''
+        for i in saleMemoObject.returnSaleItem.all():
+            dataForTable += '<tr><td>' + str(i.item.itemName) + '</td>' + '<td>' + str(
+                i.item.itemSize) + '</td>' + '<td>' + str(i.quantity) + '</td>' + '<td>' + str(
+                i.free) + '</td>' + '<td>' + str(i.saleRate) + '</td>' + '<td>' + str(i.itemTotal()) + '</td>' + '</tr>'
+        date= saleMemoObject.date
+
+        data = {
+            'isFound': True,
+            'saleMemoObjectID': saleMemoObject.id,
+            'givenMemoNo': saleMemoObject.givenMemoNo.id,
+            'date': date,
+            'customer': saleMemoObject.givenMemoNo.party.name,
+            'address': saleMemoObject.givenMemoNo.party.address,
+            'sr': saleMemoObject.givenMemoNo.party.salesRepresentative.name,
+            'dataForTable': dataForTable,
+            'tempTotal': saleMemoObject.getTotal(),
+            'discount': saleMemoObject.discount,
+        }
+
+
+    return JsonResponse(data)
