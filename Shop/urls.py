@@ -74,6 +74,9 @@ urlpatterns = [
 #------------------Report Purchase-----------------------
     url(r'^report/purchase/$',ReportManagement.purchase, name='showSrPage'),
     url(r'^report/sale/$',ReportManagement.sale, name='showSrPage'),
-    url(r'^report/sale/$',ReportManagement.sale, name='showSrPage'),
+    url(r'^report/salesReturn/$',ReportManagement.salesReturn, name='showSrPage'),
+    url(r'^report/listOfCustomers/$',ReportManagement.listOfCustomers, name='listOfCustomers'),
+    url(r'^report/listOfSupplier/$',ReportManagement.listOfSupplier, name='listOfSupplier'),
+    url(r'^report/listOfProduct/$',ReportManagement.listOfProduct, name='listOfProduct'),
 
 ]
