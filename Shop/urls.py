@@ -74,5 +74,6 @@ urlpatterns = [
 #------------------Report Purchase-----------------------
     url(r'^report/purchase/$',ReportManagement.purchase, name='showSrPage'),
     url(r'^report/sale/$',ReportManagement.sale, name='showSrPage'),
+    url(r'^report/sale/$',ReportManagement.sale, name='showSrPage'),
 
 ]

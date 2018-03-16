@@ -515,7 +515,7 @@ def returnSaveMemo(request):
 @csrf_exempt
 def forPrintLoadMemoObject(request):
     memoNo = request.POST.get('memoNo', '')
-    memoExist = SaleMemo.objects.filter(id=int(memoNo)).exists()
+    memoExist = ReturnSaleMemo.objects.filter(id=int(memoNo)).exists()
 
     if memoNo is '' or not memoExist:
         data = {
